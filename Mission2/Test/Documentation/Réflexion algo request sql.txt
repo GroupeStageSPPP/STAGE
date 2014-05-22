@@ -1,0 +1,77 @@
+Réflexion sur les requêtes
+-> qui conditionne comment l'ordre sql?
+
+Exemples de recherches possibles via l'outil :
+
+AP : 	Statistique  	Maximum  	Age
+AS1 : 	Personne	Infos persos 	Civilité 	Homme
+=> age max des hommes
+
+AP : 	Statistique  	Maximum  	Age
+AS1 : 	Personne	Infos persos 	Civilité 	Tout
+=> age max des hommes et des femmes
+
+AP : 	Statistique  	Compter		Personnes
+AS1 : 	Personne	Poste		Libelle		Secrétaire
+=> nombre de personnes ayant pour poste "secrétaire"
+
+AP : 	Statistique  	Compter		Personnes
+AS1 : 	Personne	Poste		Libelle		Tout
+=> nombre de personnes par poste
+
+AP : 	Personne	
+AS1 : 	Entretien	Infos diverse	Date 		02/03/2014
+=> liste des personnes ayant passé un entretien le 02/03/2014
+
+AP : 	Personne	
+AS1 : 	Entretien	Infos diverse	Date 		Tout
+=> liste des personnes par date d'entretien			
+
+AP : 	Entretien	
+AS1 : 	Personne	Infos persos	Civilité	Femme
+=> liste des entretiens qui concernent les femmes
+
+AP : 	Entretien	
+AS1 : 	Personne	Infos persos	Civilité	Tout
+=> liste des entretiens par civilité	
+
+AP : 	Entretien	
+AS1 : 	Personne	Poste		Libelle		Peintre indus.
+=> liste des entretiens qui concernent les peintre indus.
+
+AP : 	Entretien	
+AS1 : 	Personne	Poste		Libelle		Tout
+=> liste des entretiens par poste
+
+AP : 	Stats		Compter		Entretiens
+AS1 : 	Pers		Infos pers	Age		>= 30
+AS2 : 	Pers		Diplome		Niveau		II
+AS3 : 	Pers		Infos pers	CP		53000
+=> compter le nb d'entretiens concernant des femmes de + de 30 ans (inclus), possédant
+	un diplome de niveau II et habitant dans le 53
+
+AP : 	Stats		Compter		Entretiens
+AS1 : 	Pers		Infos pers	Age		>= 30
+AS2 : 	Pers		Diplome		Niveau		Tout
+AS3 : 	Pers		Infos pers	CP		53000
+=> compter le nb d'entretiens concernant des femmes de + de 30 ans (inclus), habitant dans le 53,
+	par niveau de diplome
+
+
+
+Observations : 
+
+dans le modèle actuel (6 possibilités d'affichage), si une combobox "ASX_4" possède un "tout", 
+	on se retrouve dans l'affichage des blocs de droite "QQCH par Personne/Entretien/Stat".
+ce qui conditionne le bloc final est la combobox AP_1.
+ce qui conditionne le contenu de la première listbox sera l'AS possédant le "tout".
+pour chaque champ de cette listbox on aura ensuite le choix d'un entretien dans la listbox
+	suivante, qui fera varier les données de droite.
+
+dans le cas des "Stats", la combobox AP_2 conditionne un type de requete particulier comme
+	min, avg, max, count
+
+
+test : 
+
+

@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,8 +51,34 @@
     <Compile Include="Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\Classes\Civilite.cs" />
+    <Compile Include="Data\Classes\Diplome.cs" />
+    <Compile Include="Data\Classes\Entretien.cs" />
+    <Compile Include="Data\Classes\Evaluation.cs" />
+    <Compile Include="Data\Classes\Personne.cs" />
+    <Compile Include="Data\Classes\Poste.cs" />
+    <Compile Include="Data\Classes\SouhaitFormation.cs" />
+    <Compile Include="Data\DB\CiviliteDB.cs" />
+    <Compile Include="Data\DB\DiplomeDB.cs" />
+    <Compile Include="Data\DB\EntretienDB.cs" />
+    <Compile Include="Data\DB\EvaluationDB.cs" />
+    <Compile Include="Data\DB\PersonneDB.cs" />
+    <Compile Include="Data\DB\PosteDB.cs" />
+    <Compile Include="Data\DB\SouhaitFormationDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultatRecherche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultatRecherche.Designer.cs">
+      <DependentUpon>ResultatRecherche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestPassageRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestPassageRequest.Designer.cs">
+      <DependentUpon>TestPassageRequest.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
@@ -64,6 +91,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ResultatRecherche.resx">
+      <DependentUpon>ResultatRecherche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestPassageRequest.resx">
+      <DependentUpon>TestPassageRequest.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -77,6 +110,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

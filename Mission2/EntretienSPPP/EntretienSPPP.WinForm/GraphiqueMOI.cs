@@ -47,7 +47,7 @@ namespace EntretienSPPP.WinForm
 
             EvaluationMoi evaluation = new EvaluationMoi();
             // rentrer les valeurs de la personne 
-            evaluation.Commnunication = 1;
+            evaluation.Communication = 1;
             evaluation.SensRelationnel = 2;
             evaluation.Implication = 5;
             evaluation.Competence = 2;
@@ -55,7 +55,7 @@ namespace EntretienSPPP.WinForm
             evaluation.Management =4 ;
             evaluation.Objectifs = 2;
 
-            Double[] Note = new Double[] {evaluation.Commnunication,evaluation.SensRelationnel,evaluation.Implication,evaluation.Competence,evaluation.Performance,evaluation.Management,evaluation.Objectifs};
+            Double[] Note = new Double[] {evaluation.Communication,evaluation.SensRelationnel,evaluation.Implication,evaluation.Competence,evaluation.Performance,evaluation.Management,evaluation.Objectifs};
 
             String[] Libelle = new String[] { "Communication", "Sens relationnel", "Implication", "Compétences", "Performances","Management","Objectifs" };
 

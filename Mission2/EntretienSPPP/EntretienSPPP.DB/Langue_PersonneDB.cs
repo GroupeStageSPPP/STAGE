@@ -40,7 +40,7 @@ namespace EntretienSPPP.DB
                 
                 languePersonne.Identifiant = dataReader.GetInt32(0);
                 languePersonne.niveau = dataReader.GetString(1);
-                languePersonne.Utilite = dataReader.GetChar(2);
+                languePersonne.Utilite = dataReader.GetString(2);
                 languePersonne.langue.Identifiant = dataReader.GetInt32(3);
                 languePersonne.personne.Identifiant = dataReader.GetInt32(4);
 

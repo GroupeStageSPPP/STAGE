@@ -23,7 +23,7 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Mesure, Description, Resultat,IdentifiantEntretien FROM Objectif ;";
+            String requete = "SELECT IdentifiantEntretien, Mesure, Description, Resultat,IdentifiantEntretien FROM Objectif ;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -36,7 +36,7 @@ namespace EntretienSPPP.DB
 
                 //1 - Créer un Objectif à partir des donner de la ligne du dataReader
                 Objectif objectif = new Objectif();
-                objectif.Identifiant = dataReader.GetInt32(0);
+                objectif.IdentifiantEntretien = dataReader.GetInt32(0);
                 objectif.Mesure = dataReader.GetString(1);
                 objectif.Description = dataReader.GetString(2);
                 objectif.Resultat = dataReader.GetString(3);

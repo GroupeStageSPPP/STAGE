@@ -11,8 +11,8 @@ namespace EntretienSPPP.library
         
         #endregion
         #region Propriété
-        public Entretien Entretien { get; set; }
-        public Int16 Commnunication { get; set; }
+        public Int32 IdentifiantEntretien { get; set; }
+        public Int16 Communication { get; set; }
         public Int16 SensRelationnel { get; set; }
         public Int16 Implication { get; set; }
         public Int16 Competence { get; set; }

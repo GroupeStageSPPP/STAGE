@@ -37,6 +37,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Messaging" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,7 +55,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acceuil.cs" />
+    <Compile Include="Acceuil.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Acceuil.Designer.cs">
       <DependentUpon>Acceuil.cs</DependentUpon>
     </Compile>
@@ -105,19 +109,27 @@
     <Compile Include="AjouterPoste.Designer.cs">
       <DependentUpon>AjouterPoste.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphiqueHierarchie.cs" />
+    <Compile Include="GraphiqueHierarchie.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GraphiqueHierarchie.Designer.cs">
       <DependentUpon>GraphiqueHierarchie.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphiqueMOD.cs" />
+    <Compile Include="GraphiqueMOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GraphiqueMOD.Designer.cs">
       <DependentUpon>GraphiqueMOD.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphiqueMOI.cs" />
+    <Compile Include="GraphiqueMOI.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GraphiqueMOI.Designer.cs">
       <DependentUpon>GraphiqueMOI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphiqueSatisfaction.cs" />
+    <Compile Include="GraphiqueSatisfaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GraphiqueSatisfaction.Designer.cs">
       <DependentUpon>GraphiqueSatisfaction.cs</DependentUpon>
     </Compile>
@@ -207,6 +219,10 @@
     <ProjectReference Include="..\EntretienSPPP.DB\EntretienSPPP.DB.csproj">
       <Project>{54b30e80-cfe3-49ee-ba10-e7025c871ef0}</Project>
       <Name>EntretienSPPP.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntretienSPPP.library\EntretienSPPP.library.csproj">
+      <Project>{1b8004c1-6bf8-41ee-b78b-9cfb7e789952}</Project>
+      <Name>EntretienSPPP.library</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

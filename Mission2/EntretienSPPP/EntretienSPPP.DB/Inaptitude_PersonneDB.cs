@@ -79,11 +79,9 @@ namespace EntretienSPPP.DB
 
             //1 - Création du Inaptitude_Personne
             Inaptitude_Personne inaptitudePersonne = new Inaptitude_Personne();
-            string ValueDefinitif = dataReader.GetValue(2).ToString();
-            char charValueDefinitif = Bit.BitTochar(ValueDefinitif);
             inaptitudePersonne.Identifiant = dataReader.GetInt32(0);
             inaptitudePersonne.DateFin = dataReader.GetDateTime(1);
-            inaptitudePersonne.Definitif = charValueDefinitif;
+            inaptitudePersonne.Definitif = dataReader.GetChar(2);
             inaptitudePersonne.inaptitude.Identifiant = dataReader.GetInt32(3);
             inaptitudePersonne.personne.Identifiant = dataReader.GetInt32(4);
             dataReader.Close();

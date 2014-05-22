@@ -20,3 +20,8 @@ C:\Users\jbblois\Desktop\Groupe\Jb\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB
 C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.csprojResolveAssemblyReference.cache
 C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.dll
 C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.pdb
+C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.dll.config
+C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.dll
+C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.pdb
+C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.library.dll
+C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.library.pdb

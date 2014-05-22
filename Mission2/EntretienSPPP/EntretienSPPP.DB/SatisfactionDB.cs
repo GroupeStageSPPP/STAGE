@@ -99,9 +99,9 @@ namespace EntretienSPPP.DB
             satisfaction.ReunionService = dataReader.GetInt16(7);
             satisfaction.LaDirection = dataReader.GetInt16(8);
             satisfaction.EvolutionMission = dataReader.GetString(9);
-            satisfaction.MonService = dataReader.GetString(9);
-            satisfaction.MonSite = dataReader.GetString(10);
-            satisfaction.AutreSite = dataReader.GetString(11);
+            satisfaction.MonService = dataReader.GetString(10);
+            satisfaction.MonSite = dataReader.GetString(11);
+            satisfaction.AutreSite = dataReader.GetString(12);
             dataReader.Close();
             connection.Close();
             return satisfaction;

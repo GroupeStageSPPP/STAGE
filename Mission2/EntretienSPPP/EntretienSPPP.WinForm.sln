@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntretienSPPP.DB", "EntretienSPPP.DB\EntretienSPPP.DB.csproj", "{54B30E80-CFE3-49EE-BA10-E7025C871EF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntretienSPPP.library", "EntretienSPPP.library\EntretienSPPP.library.csproj", "{1B8004C1-6BF8-41EE-B78B-9CFB7E789952}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntretienSPPP.WinForm", "EntretienSPPP.WinForm\EntretienSPPP.WinForm.csproj", "{4045A0E9-EF07-4430-8A66-338713A7B7F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54B30E80-CFE3-49EE-BA10-E7025C871EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B30E80-CFE3-49EE-BA10-E7025C871EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B30E80-CFE3-49EE-BA10-E7025C871EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B30E80-CFE3-49EE-BA10-E7025C871EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B8004C1-6BF8-41EE-B78B-9CFB7E789952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B8004C1-6BF8-41EE-B78B-9CFB7E789952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B8004C1-6BF8-41EE-B78B-9CFB7E789952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B8004C1-6BF8-41EE-B78B-9CFB7E789952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4045A0E9-EF07-4430-8A66-338713A7B7F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4045A0E9-EF07-4430-8A66-338713A7B7F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4045A0E9-EF07-4430-8A66-338713A7B7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4045A0E9-EF07-4430-8A66-338713A7B7F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

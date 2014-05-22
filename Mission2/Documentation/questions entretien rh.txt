@@ -1,0 +1,33 @@
+Questions sur les stats rh
+
+(Mme Garnier)
+
+type d'ordre / recherche :
+
+rechercher le nb de personne par poste?
+rechercher la moyenne d'age par poste?
+
+moyenne de satisfaction des femmes par poste?
+
+
+tri : 
+trier selon les heures de début / fin des entretiens?
+trier selon la ville? le code postal?
+trier selon le passé du salarié? (dates deb/fin ou entreprise) (table cv)
+trier selon l'organisme? (???)
+trier selon la date d'obtention d'un diplôme?
+trier selon la date de fin d'une habilité / inaptitude?
+trier selon la fonction? (table poste)
+trier selon date deb/fin du poste d'une personne?
+trier selon le coef du poste?
+
+
+
+
+autres : 
+formations souhaitées / souhaitable : avis --> possibilité de mettre des
+	 commentaires ou juste "pour/contre" (avis pers + resp)
+listbox ou combobox pour ajouts?
+inaptitudes -> propres à la personne? ou typées (ex : invalidité)?
+historique des postes : qu'est-ce que le "statut"?
+coefficien : chiffre à virgule?

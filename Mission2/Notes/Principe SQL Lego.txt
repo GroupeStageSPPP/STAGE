@@ -1,0 +1,11 @@
+Selectionner: [Les Personne] et faire un(e) [Moyenne] sur  [L'Age]   (Ajouter condition)
+
+Condition1 : [Personne] -> [Genre]   [Egal a] |Femme| 		     (Ajouter condition)
+Condition2 : [Personne] -> [Salaire] [Compris entre] |500| et |1500| (Ajouter condition)
+
+Selectionner +la moyenne +d'age +des personne + qui sont des +femmes +et +qui ont un salaire +compris entre: +500 +et + 1500 + euros +.
+(Envoyer)
+
+
+
+

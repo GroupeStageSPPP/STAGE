@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b70cd4b8beb643699064b1584212d8f9" Name="Diagramme1">
+        <EntityTypeShape EntityType="LaboSPPPModel.CATEGORIE" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.CLIENT" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.CONSTRUCTEUR" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.COUCHE" Width="1.5" PointX="9.625" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.COUCHE_PEINTURE" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.ECHANTILLON" Width="1.5" PointX="12.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.FOURNISSEUR" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.PEINTURE" Width="1.5" PointX="8.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.PIECE" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.PIECE_TEST" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.PRODUIT" Width="1.5" PointX="10.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.RESULTAT_TEST" Width="1.5" PointX="15" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.sysdiagram" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.TEST" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.TYPE" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboSPPPModel.VEHICULE" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="LaboSPPPModel.FK_TYPE_CATEGORIE" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_PIECE_CLIENT" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_VEHICULE_CONSTRUCTEUR" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_COUCHE_FOURNISSEUR1" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_COUCHE_PEINTURE_COUCHE" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_COUCHE_PEINTURE_PEINTURE" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_ECHANTILLON_PRODUIT" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_RESULTAT_TEST_ECHANTILLON" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_PRODUIT_PEINTURE" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_PIECE_TEST_PIECE" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_PIECE_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_PIECE_VEHICULE" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_PRODUIT_PIECE" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_PIECE_TEST_TEST" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboSPPPModel.FK_RESULTAT_TEST_TEST" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

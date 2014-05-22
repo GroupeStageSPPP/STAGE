@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LaboSPPPModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="LaboSPPPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CATEGORIEs" EntityType="LaboSPPPModel.CATEGORIE" />
+    <EntitySet Name="CLIENTs" EntityType="LaboSPPPModel.CLIENT" />
+    <EntitySet Name="CONSTRUCTEURs" EntityType="LaboSPPPModel.CONSTRUCTEUR" />
+    <EntitySet Name="COUCHEs" EntityType="LaboSPPPModel.COUCHE" />
+    <EntitySet Name="COUCHE_PEINTURE" EntityType="LaboSPPPModel.COUCHE_PEINTURE" />
+    <EntitySet Name="ECHANTILLONs" EntityType="LaboSPPPModel.ECHANTILLON" />
+    <EntitySet Name="FOURNISSEURs" EntityType="LaboSPPPModel.FOURNISSEUR" />
+    <EntitySet Name="PEINTUREs" EntityType="LaboSPPPModel.PEINTURE" />
+    <EntitySet Name="PIECEs" EntityType="LaboSPPPModel.PIECE" />
+    <EntitySet Name="PIECE_TEST" EntityType="LaboSPPPModel.PIECE_TEST" />
+    <EntitySet Name="PRODUITs" EntityType="LaboSPPPModel.PRODUIT" />
+    <EntitySet Name="RESULTAT_TEST" EntityType="LaboSPPPModel.RESULTAT_TEST" />
+    <EntitySet Name="sysdiagrams" EntityType="LaboSPPPModel.sysdiagram" />
+    <EntitySet Name="TESTs" EntityType="LaboSPPPModel.TEST" />
+    <EntitySet Name="TYPEs" EntityType="LaboSPPPModel.TYPE" />
+    <EntitySet Name="VEHICULEs" EntityType="LaboSPPPModel.VEHICULE" />
+    <AssociationSet Name="FK_TYPE_CATEGORIE" Association="LaboSPPPModel.FK_TYPE_CATEGORIE">
+      <End Role="CATEGORIE" EntitySet="CATEGORIEs" />
+      <End Role="TYPE" EntitySet="TYPEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PIECE_CLIENT" Association="LaboSPPPModel.FK_PIECE_CLIENT">
+      <End Role="CLIENT" EntitySet="CLIENTs" />
+      <End Role="PIECE" EntitySet="PIECEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEHICULE_CONSTRUCTEUR" Association="LaboSPPPModel.FK_VEHICULE_CONSTRUCTEUR">
+      <End Role="CONSTRUCTEUR" EntitySet="CONSTRUCTEURs" />
+      <End Role="VEHICULE" EntitySet="VEHICULEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUCHE_FOURNISSEUR1" Association="LaboSPPPModel.FK_COUCHE_FOURNISSEUR1">
+      <End Role="FOURNISSEUR" EntitySet="FOURNISSEURs" />
+      <End Role="COUCHE" EntitySet="COUCHEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUCHE_PEINTURE_COUCHE" Association="LaboSPPPModel.FK_COUCHE_PEINTURE_COUCHE">
+      <End Role="COUCHE" EntitySet="COUCHEs" />
+      <End Role="COUCHE_PEINTURE" EntitySet="COUCHE_PEINTURE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUCHE_PEINTURE_PEINTURE" Association="LaboSPPPModel.FK_COUCHE_PEINTURE_PEINTURE">
+      <End Role="PEINTURE" EntitySet="PEINTUREs" />
+      <End Role="COUCHE_PEINTURE" EntitySet="COUCHE_PEINTURE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ECHANTILLON_PRODUIT" Association="LaboSPPPModel.FK_ECHANTILLON_PRODUIT">
+      <End Role="PRODUIT" EntitySet="PRODUITs" />
+      <End Role="ECHANTILLON" EntitySet="ECHANTILLONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESULTAT_TEST_ECHANTILLON" Association="LaboSPPPModel.FK_RESULTAT_TEST_ECHANTILLON">
+      <End Role="ECHANTILLON" EntitySet="ECHANTILLONs" />
+      <End Role="RESULTAT_TEST" EntitySet="RESULTAT_TEST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUIT_PEINTURE" Association="LaboSPPPModel.FK_PRODUIT_PEINTURE">
+      <End Role="PEINTURE" EntitySet="PEINTUREs" />
+      <End Role="PRODUIT" EntitySet="PRODUITs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PIECE_TEST_PIECE" Association="LaboSPPPModel.FK_PIECE_TEST_PIECE">
+      <End Role="PIECE" EntitySet="PIECEs" />
+      <End Role="PIECE_TEST" EntitySet="PIECE_TEST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PIECE_TYPE" Association="LaboSPPPModel.FK_PIECE_TYPE">
+      <End Role="TYPE" EntitySet="TYPEs" />
+      <End Role="PIECE" EntitySet="PIECEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PIECE_VEHICULE" Association="LaboSPPPModel.FK_PIECE_VEHICULE">
+      <End Role="VEHICULE" EntitySet="VEHICULEs" />
+      <End Role="PIECE" EntitySet="PIECEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUIT_PIECE" Association="LaboSPPPModel.FK_PRODUIT_PIECE">
+      <End Role="PIECE" EntitySet="PIECEs" />
+      <End Role="PRODUIT" EntitySet="PRODUITs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PIECE_TEST_TEST" Association="LaboSPPPModel.FK_PIECE_TEST_TEST">
+      <End Role="TEST" EntitySet="TESTs" />
+      <End Role="PIECE_TEST" EntitySet="PIECE_TEST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESULTAT_TEST_TEST" Association="LaboSPPPModel.FK_RESULTAT_TEST_TEST">
+      <End Role="TEST" EntitySet="TESTs" />
+      <End Role="RESULTAT_TEST" EntitySet="RESULTAT_TEST" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(LaboSPPPModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(LaboSPPPModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <EntityType Name="CATEGORIE">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="TYPEs" Relationship="LaboSPPPModel.FK_TYPE_CATEGORIE" FromRole="CATEGORIE" ToRole="TYPE" />
+  </EntityType>
+  <EntityType Name="CLIENT">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <Property Name="Mail" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <Property Name="Telephone" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <Property Name="Responsable" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <Property Name="Adresse" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="PIECEs" Relationship="LaboSPPPModel.FK_PIECE_CLIENT" FromRole="CLIENT" ToRole="PIECE" />
+  </EntityType>
+  <EntityType Name="CONSTRUCTEUR">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <Property Name="Mail" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <Property Name="Telephone" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <Property Name="Responsable" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <Property Name="Adresse" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="VEHICULEs" Relationship="LaboSPPPModel.FK_VEHICULE_CONSTRUCTEUR" FromRole="CONSTRUCTEUR" ToRole="VEHICULE" />
+  </EntityType>
+  <EntityType Name="COUCHE">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="TypeCouche" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="DocRef" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="IdentifiantFournisseur" Type="Int32" />
+    <NavigationProperty Name="FOURNISSEUR" Relationship="LaboSPPPModel.FK_COUCHE_FOURNISSEUR1" FromRole="COUCHE" ToRole="FOURNISSEUR" />
+    <NavigationProperty Name="COUCHE_PEINTURE" Relationship="LaboSPPPModel.FK_COUCHE_PEINTURE_COUCHE" FromRole="COUCHE" ToRole="COUCHE_PEINTURE" />
+  </EntityType>
+  <EntityType Name="COUCHE_PEINTURE">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Min" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Max" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Moy" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="IdentifiantCouche" Type="Int32" />
+    <Property Name="IdentifiantPeinture" Type="Int32" />
+    <NavigationProperty Name="COUCHE" Relationship="LaboSPPPModel.FK_COUCHE_PEINTURE_COUCHE" FromRole="COUCHE_PEINTURE" ToRole="COUCHE" />
+    <NavigationProperty Name="PEINTURE" Relationship="LaboSPPPModel.FK_COUCHE_PEINTURE_PEINTURE" FromRole="COUCHE_PEINTURE" ToRole="PEINTURE" />
+  </EntityType>
+  <EntityType Name="ECHANTILLON">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumLot" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="DatePeinture" Type="DateTime" Precision="7" />
+    <Property Name="IdentifiantProduit" Type="Int32" />
+    <NavigationProperty Name="PRODUIT" Relationship="LaboSPPPModel.FK_ECHANTILLON_PRODUIT" FromRole="ECHANTILLON" ToRole="PRODUIT" />
+    <NavigationProperty Name="RESULTAT_TEST" Relationship="LaboSPPPModel.FK_RESULTAT_TEST_ECHANTILLON" FromRole="ECHANTILLON" ToRole="RESULTAT_TEST" />
+  </EntityType>
+  <EntityType Name="FOURNISSEUR">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="COUCHEs" Relationship="LaboSPPPModel.FK_COUCHE_FOURNISSEUR1" FromRole="FOURNISSEUR" ToRole="COUCHE" />
+  </EntityType>
+  <EntityType Name="PEINTURE">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Reference" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="BN" Type="Byte" />
+    <Property Name="RV" Type="Byte" />
+    <Property Name="JB" Type="Byte" />
+    <NavigationProperty Name="COUCHE_PEINTURE" Relationship="LaboSPPPModel.FK_COUCHE_PEINTURE_PEINTURE" FromRole="PEINTURE" ToRole="COUCHE_PEINTURE" />
+    <NavigationProperty Name="PRODUITs" Relationship="LaboSPPPModel.FK_PRODUIT_PEINTURE" FromRole="PEINTURE" ToRole="PRODUIT" />
+  </EntityType>
+  <EntityType Name="PIECE">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+    <Property Name="IdentifiantClient" Type="Int32" />
+    <Property Name="IdentifiantVehicule" Type="Int32" />
+    <Property Name="IdentifiantType" Type="Int32" />
+    <NavigationProperty Name="CLIENT" Relationship="LaboSPPPModel.FK_PIECE_CLIENT" FromRole="PIECE" ToRole="CLIENT" />
+    <NavigationProperty Name="PIECE_TEST" Relationship="LaboSPPPModel.FK_PIECE_TEST_PIECE" FromRole="PIECE" ToRole="PIECE_TEST" />
+    <NavigationProperty Name="TYPE" Relationship="LaboSPPPModel.FK_PIECE_TYPE" FromRole="PIECE" ToRole="TYPE" />
+    <NavigationProperty Name="VEHICULE" Relationship="LaboSPPPModel.FK_PIECE_VEHICULE" FromRole="PIECE" ToRole="VEHICULE" />
+    <NavigationProperty Name="PRODUITs" Relationship="LaboSPPPModel.FK_PRODUIT_PIECE" FromRole="PIECE" ToRole="PRODUIT" />
+  </EntityType>
+  <EntityType Name="PIECE_TEST">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdentifiantPiece" Type="Int32" Nullable="false" />
+    <Property Name="IdentifiantTest" Type="Int32" Nullable="false" />
+    <Property Name="min" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="max" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="moy" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="PIECE" Relationship="LaboSPPPModel.FK_PIECE_TEST_PIECE" FromRole="PIECE_TEST" ToRole="PIECE" />
+    <NavigationProperty Name="TEST" Relationship="LaboSPPPModel.FK_PIECE_TEST_TEST" FromRole="PIECE_TEST" ToRole="TEST" />
+  </EntityType>
+  <EntityType Name="PRODUIT">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PositionGD" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="PositionAVAR" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="IdentifiantPiece" Type="Int32" />
+    <Property Name="IdentifiantPeinture" Type="Int32" />
+    <NavigationProperty Name="ECHANTILLONs" Relationship="LaboSPPPModel.FK_ECHANTILLON_PRODUIT" FromRole="PRODUIT" ToRole="ECHANTILLON" />
+    <NavigationProperty Name="PEINTURE" Relationship="LaboSPPPModel.FK_PRODUIT_PEINTURE" FromRole="PRODUIT" ToRole="PEINTURE" />
+    <NavigationProperty Name="PIECE" Relationship="LaboSPPPModel.FK_PRODUIT_PIECE" FromRole="PRODUIT" ToRole="PIECE" />
+  </EntityType>
+  <EntityType Name="RESULTAT_TEST">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valeur" Type="Boolean" />
+    <Property Name="IdentifiantEchantillon" Type="Int32" />
+    <Property Name="IdentifiantTest" Type="Int32" />
+    <NavigationProperty Name="ECHANTILLON" Relationship="LaboSPPPModel.FK_RESULTAT_TEST_ECHANTILLON" FromRole="RESULTAT_TEST" ToRole="ECHANTILLON" />
+    <NavigationProperty Name="TEST" Relationship="LaboSPPPModel.FK_RESULTAT_TEST_TEST" FromRole="RESULTAT_TEST" ToRole="TEST" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TEST">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="TypeTest" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="PIECE_TEST" Relationship="LaboSPPPModel.FK_PIECE_TEST_TEST" FromRole="TEST" ToRole="PIECE_TEST" />
+    <NavigationProperty Name="RESULTAT_TEST" Relationship="LaboSPPPModel.FK_RESULTAT_TEST_TEST" FromRole="TEST" ToRole="RESULTAT_TEST" />
+  </EntityType>
+  <EntityType Name="TYPE">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type1" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="IdentifiantCategorie" Type="Int32" />
+    <NavigationProperty Name="CATEGORIE" Relationship="LaboSPPPModel.FK_TYPE_CATEGORIE" FromRole="TYPE" ToRole="CATEGORIE" />
+    <NavigationProperty Name="PIECEs" Relationship="LaboSPPPModel.FK_PIECE_TYPE" FromRole="TYPE" ToRole="PIECE" />
+  </EntityType>
+  <EntityType Name="VEHICULE">
+    <Key>
+      <PropertyRef Name="Identifiant" />
+    </Key>
+    <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="IdentifiantConstructeur" Type="Int32" />
+    <NavigationProperty Name="CONSTRUCTEUR" Relationship="LaboSPPPModel.FK_VEHICULE_CONSTRUCTEUR" FromRole="VEHICULE" ToRole="CONSTRUCTEUR" />
+    <NavigationProperty Name="PIECEs" Relationship="LaboSPPPModel.FK_PIECE_VEHICULE" FromRole="VEHICULE" ToRole="PIECE" />
+  </EntityType>
+  <Association Name="FK_TYPE_CATEGORIE">
+    <End Role="CATEGORIE" Type="LaboSPPPModel.CATEGORIE" Multiplicity="0..1" />
+    <End Role="TYPE" Type="LaboSPPPModel.TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIE">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="TYPE">
+        <PropertyRef Name="IdentifiantCategorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PIECE_CLIENT">
+    <End Role="CLIENT" Type="LaboSPPPModel.CLIENT" Multiplicity="0..1" />
+    <End Role="PIECE" Type="LaboSPPPModel.PIECE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENT">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="PIECE">
+        <PropertyRef Name="IdentifiantClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEHICULE_CONSTRUCTEUR">
+    <End Role="CONSTRUCTEUR" Type="LaboSPPPModel.CONSTRUCTEUR" Multiplicity="0..1" />
+    <End Role="VEHICULE" Type="LaboSPPPModel.VEHICULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONSTRUCTEUR">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="VEHICULE">
+        <PropertyRef Name="IdentifiantConstructeur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUCHE_FOURNISSEUR1">
+    <End Role="FOURNISSEUR" Type="LaboSPPPModel.FOURNISSEUR" Multiplicity="0..1" />
+    <End Role="COUCHE" Type="LaboSPPPModel.COUCHE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOURNISSEUR">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="COUCHE">
+        <PropertyRef Name="IdentifiantFournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUCHE_PEINTURE_COUCHE">
+    <End Role="COUCHE" Type="LaboSPPPModel.COUCHE" Multiplicity="0..1" />
+    <End Role="COUCHE_PEINTURE" Type="LaboSPPPModel.COUCHE_PEINTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COUCHE">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="COUCHE_PEINTURE">
+        <PropertyRef Name="IdentifiantCouche" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUCHE_PEINTURE_PEINTURE">
+    <End Role="PEINTURE" Type="LaboSPPPModel.PEINTURE" Multiplicity="0..1" />
+    <End Role="COUCHE_PEINTURE" Type="LaboSPPPModel.COUCHE_PEINTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEINTURE">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="COUCHE_PEINTURE">
+        <PropertyRef Name="IdentifiantPeinture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ECHANTILLON_PRODUIT">
+    <End Role="PRODUIT" Type="LaboSPPPModel.PRODUIT" Multiplicity="0..1" />
+    <End Role="ECHANTILLON" Type="LaboSPPPModel.ECHANTILLON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUIT">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="ECHANTILLON">
+        <PropertyRef Name="IdentifiantProduit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESULTAT_TEST_ECHANTILLON">
+    <End Role="ECHANTILLON" Type="LaboSPPPModel.ECHANTILLON" Multiplicity="0..1" />
+    <End Role="RESULTAT_TEST" Type="LaboSPPPModel.RESULTAT_TEST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ECHANTILLON">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="RESULTAT_TEST">
+        <PropertyRef Name="IdentifiantEchantillon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUIT_PEINTURE">
+    <End Role="PEINTURE" Type="LaboSPPPModel.PEINTURE" Multiplicity="0..1" />
+    <End Role="PRODUIT" Type="LaboSPPPModel.PRODUIT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEINTURE">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="PRODUIT">
+        <PropertyRef Name="IdentifiantPeinture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PIECE_TEST_PIECE">
+    <End Role="PIECE" Type="LaboSPPPModel.PIECE" Multiplicity="1" />
+    <End Role="PIECE_TEST" Type="LaboSPPPModel.PIECE_TEST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PIECE">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="PIECE_TEST">
+        <PropertyRef Name="IdentifiantPiece" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PIECE_TYPE">
+    <End Role="TYPE" Type="LaboSPPPModel.TYPE" Multiplicity="0..1" />
+    <End Role="PIECE" Type="LaboSPPPModel.PIECE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPE">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="PIECE">
+        <PropertyRef Name="IdentifiantType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PIECE_VEHICULE">
+    <End Role="VEHICULE" Type="LaboSPPPModel.VEHICULE" Multiplicity="0..1" />
+    <End Role="PIECE" Type="LaboSPPPModel.PIECE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICULE">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="PIECE">
+        <PropertyRef Name="IdentifiantVehicule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUIT_PIECE">
+    <End Role="PIECE" Type="LaboSPPPModel.PIECE" Multiplicity="0..1" />
+    <End Role="PRODUIT" Type="LaboSPPPModel.PRODUIT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PIECE">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="PRODUIT">
+        <PropertyRef Name="IdentifiantPiece" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PIECE_TEST_TEST">
+    <End Role="TEST" Type="LaboSPPPModel.TEST" Multiplicity="1" />
+    <End Role="PIECE_TEST" Type="LaboSPPPModel.PIECE_TEST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEST">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="PIECE_TEST">
+        <PropertyRef Name="IdentifiantTest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESULTAT_TEST_TEST">
+    <End Role="TEST" Type="LaboSPPPModel.TEST" Multiplicity="0..1" />
+    <End Role="RESULTAT_TEST" Type="LaboSPPPModel.RESULTAT_TEST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEST">
+        <PropertyRef Name="Identifiant" />
+      </Principal>
+      <Dependent Role="RESULTAT_TEST">
+        <PropertyRef Name="IdentifiantTest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

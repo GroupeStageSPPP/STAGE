@@ -1,6 +1,6 @@
 ﻿namespace EntretienSPPP.WinForm
 {
-    partial class AjouterHabilite
+    partial class AjouterHabilitation
     {
         /// <summary>
         /// Required designer variable.
@@ -66,7 +66,7 @@
             this.label1.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.label1.Location = new System.Drawing.Point(9, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Type";
             // 
@@ -138,11 +138,11 @@
             this.InformationPerso.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
             this.InformationPerso.Location = new System.Drawing.Point(145, 9);
             this.InformationPerso.Name = "InformationPerso";
-            this.InformationPerso.Size = new System.Drawing.Size(65, 17);
+            this.InformationPerso.Size = new System.Drawing.Size(95, 17);
             this.InformationPerso.TabIndex = 27;
-            this.InformationPerso.Text = "Habilité";
+            this.InformationPerso.Text = "Habilitation";
             // 
-            // AjouterHabilite
+            // AjouterHabilitation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,7 +161,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(371, 154);
             this.MinimumSize = new System.Drawing.Size(371, 154);
-            this.Name = "AjouterHabilite";
+            this.Name = "AjouterHabilitation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AjouterHabilite_Page";
             this.ResumeLayout(false);

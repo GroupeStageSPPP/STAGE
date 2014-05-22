@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EntretienSPPP.WinForm
 {
-    public partial class AjouterHabilite : Form
+    public partial class AjouterHabilitation : Form
     {
-        public AjouterHabilite()
+        public AjouterHabilitation()
         {
             InitializeComponent();
         }

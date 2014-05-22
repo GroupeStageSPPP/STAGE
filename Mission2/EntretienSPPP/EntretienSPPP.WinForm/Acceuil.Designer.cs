@@ -109,7 +109,7 @@
             this.listBoxFormation = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.listBoxHabilite = new System.Windows.Forms.ListBox();
+            this.listBoxHabilitation = new System.Windows.Forms.ListBox();
             this.label16 = new System.Windows.Forms.Label();
             this.buttonAjouterFormation = new System.Windows.Forms.Button();
             this.listBoxInaptitude = new System.Windows.Forms.ListBox();
@@ -220,19 +220,19 @@
             // personnesToolStripMenuItem
             // 
             this.personnesToolStripMenuItem.Name = "personnesToolStripMenuItem";
-            this.personnesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.personnesToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.personnesToolStripMenuItem.Text = "Employé";
             // 
             // entretienToolStripMenuItem1
             // 
             this.entretienToolStripMenuItem1.Name = "entretienToolStripMenuItem1";
-            this.entretienToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.entretienToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.entretienToolStripMenuItem1.Text = "Entretien";
             // 
             // statistiquesToolStripMenuItem
             // 
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
-            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.statistiquesToolStripMenuItem.Text = "Statistiques";
             this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
             // 
@@ -293,7 +293,7 @@
             this.pleinÉcranToolStripMenuItem.Checked = true;
             this.pleinÉcranToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pleinÉcranToolStripMenuItem.Name = "pleinÉcranToolStripMenuItem";
-            this.pleinÉcranToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pleinÉcranToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.pleinÉcranToolStripMenuItem.Text = "Plein écran";
             this.pleinÉcranToolStripMenuItem.Click += new System.EventHandler(this.pleinÉcranToolStripMenuItem_Click);
             // 
@@ -301,7 +301,7 @@
             // 
             this.fenêtréToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.fenêtréToolStripMenuItem.Name = "fenêtréToolStripMenuItem";
-            this.fenêtréToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fenêtréToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.fenêtréToolStripMenuItem.Text = "Fenêtré";
             this.fenêtréToolStripMenuItem.Click += new System.EventHandler(this.fenêtréToolStripMenuItem_Click);
             // 
@@ -310,25 +310,25 @@
             this.toolStripSeparator1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripSeparator1.ForeColor = System.Drawing.Color.Transparent;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(129, 6);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(132, 22);
             this.toolStripMenuItem2.Text = "Acceuil";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(129, 6);
             // 
             // aideToolStripMenuItem
             // 
             this.aideToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.aideToolStripMenuItem.Text = "Aide";
             // 
             // quitterToolStripMenuItem
@@ -845,7 +845,7 @@
             this.panel5.Controls.Add(this.listBoxFormation);
             this.panel5.Controls.Add(this.label17);
             this.panel5.Controls.Add(this.label15);
-            this.panel5.Controls.Add(this.listBoxHabilite);
+            this.panel5.Controls.Add(this.listBoxHabilitation);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.buttonAjouterFormation);
             this.panel5.Controls.Add(this.listBoxInaptitude);
@@ -974,11 +974,11 @@
             // buttonAjouterHabilite
             // 
             this.buttonAjouterHabilite.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.buttonAjouterHabilite.Location = new System.Drawing.Point(145, 5);
+            this.buttonAjouterHabilite.Location = new System.Drawing.Point(115, 5);
             this.buttonAjouterHabilite.Name = "buttonAjouterHabilite";
-            this.buttonAjouterHabilite.Size = new System.Drawing.Size(130, 23);
+            this.buttonAjouterHabilite.Size = new System.Drawing.Size(160, 23);
             this.buttonAjouterHabilite.TabIndex = 12;
-            this.buttonAjouterHabilite.Text = "Ajouter une Habilité";
+            this.buttonAjouterHabilite.Text = "Ajouter une Habilitation";
             this.buttonAjouterHabilite.UseVisualStyleBackColor = true;
             this.buttonAjouterHabilite.Click += new System.EventHandler(this.buttonAjouterHabilite_Click);
             // 
@@ -1037,18 +1037,18 @@
             this.label15.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.label15.Location = new System.Drawing.Point(6, 10);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(58, 13);
+            this.label15.Size = new System.Drawing.Size(79, 13);
             this.label15.TabIndex = 35;
-            this.label15.Text = "Habilité :";
+            this.label15.Text = "Habilitation :";
             // 
-            // listBoxHabilite
+            // listBoxHabilitation
             // 
-            this.listBoxHabilite.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.listBoxHabilite.FormattingEnabled = true;
-            this.listBoxHabilite.Location = new System.Drawing.Point(9, 34);
-            this.listBoxHabilite.Name = "listBoxHabilite";
-            this.listBoxHabilite.Size = new System.Drawing.Size(266, 108);
-            this.listBoxHabilite.TabIndex = 13;
+            this.listBoxHabilitation.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.listBoxHabilitation.FormattingEnabled = true;
+            this.listBoxHabilitation.Location = new System.Drawing.Point(9, 34);
+            this.listBoxHabilitation.Name = "listBoxHabilitation";
+            this.listBoxHabilitation.Size = new System.Drawing.Size(266, 108);
+            this.listBoxHabilitation.TabIndex = 13;
             // 
             // label16
             // 
@@ -1384,7 +1384,7 @@
         private System.Windows.Forms.ListBox listBoxFormation;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ListBox listBoxHabilite;
+        private System.Windows.Forms.ListBox listBoxHabilitation;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button buttonAjouterFormation;
         private System.Windows.Forms.ListBox listBoxInaptitude;

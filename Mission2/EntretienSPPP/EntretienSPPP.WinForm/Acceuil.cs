@@ -184,10 +184,10 @@ namespace EntretienSPPP.WinForm
             {
                 List<Habilite_Personne> listHabilitePersonne = Habilite_PersonneDB.List();
 
-                this.listBoxHabilite.DataSource = listHabilitePersonne;
-                this.listBoxHabilite.DisplayMember = "habilite";
-                this.listBoxHabilite.DisplayMember = "organisme";
-                this.listBoxHabilite.ValueMember = "Identifiant";
+                this.listBoxHabilitation.DataSource = listHabilitePersonne;
+                this.listBoxHabilitation.DisplayMember = "habilite";
+                this.listBoxHabilitation.DisplayMember = "organisme";
+                this.listBoxHabilitation.ValueMember = "Identifiant";
 
             }
 
@@ -258,7 +258,7 @@ namespace EntretienSPPP.WinForm
                     }
                     private void buttonAjouterHabilite_Click(object sender, EventArgs e)
                     {
-                        AjouterHabilite habilite = new AjouterHabilite();
+                        AjouterHabilitation habilite = new AjouterHabilitation();
                         habilite.ShowDialog();
                     }
                     private void buttonAjouterDiplome_Click(object sender, EventArgs e)

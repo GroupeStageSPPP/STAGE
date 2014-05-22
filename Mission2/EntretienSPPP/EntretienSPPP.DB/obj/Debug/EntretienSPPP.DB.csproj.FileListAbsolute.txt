@@ -25,3 +25,11 @@ C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug
 C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.pdb
 C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.library.dll
 C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.library.pdb
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.dll.config
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.dll
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.pdb
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.library.dll
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.library.pdb
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.csprojResolveAssemblyReference.cache
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.dll
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.pdb

@@ -34,3 +34,14 @@ C:\Users\jeoffrey\Desktop\STAGE\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\fr
 C:\Users\jeoffrey\Desktop\STAGE\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.csprojResolveAssemblyReference.cache
 C:\Users\jeoffrey\Desktop\STAGE\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.dll
 C:\Users\jeoffrey\Desktop\STAGE\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.pdb
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.DB.dll.config
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.DB.dll
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.DB.pdb
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\EntityFramework.dll
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.Library.dll
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\QualiteSPPP.Library.pdb
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\EntityFramework.xml
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.csprojResolveAssemblyReference.cache
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.dll
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.DB\obj\Debug\QualiteSPPP.DB.pdb

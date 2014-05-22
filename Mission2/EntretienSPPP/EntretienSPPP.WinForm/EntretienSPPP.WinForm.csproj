@@ -85,11 +85,11 @@
     <Compile Include="AjouterFormation.Designer.cs">
       <DependentUpon>AjouterFormation.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterHabilite.cs">
+    <Compile Include="AjouterHabilitation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterHabilite.Designer.cs">
-      <DependentUpon>AjouterHabilite.cs</DependentUpon>
+    <Compile Include="AjouterHabilitation.Designer.cs">
+      <DependentUpon>AjouterHabilitation.cs</DependentUpon>
     </Compile>
     <Compile Include="AjouterInaptitude.cs">
       <SubType>Form</SubType>
@@ -162,8 +162,8 @@
     <EmbeddedResource Include="AjouterFormation.resx">
       <DependentUpon>AjouterFormation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterHabilite.resx">
-      <DependentUpon>AjouterHabilite.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterHabilitation.resx">
+      <DependentUpon>AjouterHabilitation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjouterInaptitude.resx">
       <DependentUpon>AjouterInaptitude.cs</DependentUpon>

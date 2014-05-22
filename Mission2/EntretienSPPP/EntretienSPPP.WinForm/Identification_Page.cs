@@ -19,8 +19,11 @@ namespace EntretienSPPP.WinForm
         {
             InitializeComponent();
         }
-
-        private void pictureBoxButtonSeConnecter_Click(object sender, EventArgs e)
+        private void pictureBoxButtonClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        private void buttonSeConnecter_Click(object sender, EventArgs e)
         {
             StatusActuel = new Identification();
 
@@ -47,11 +50,6 @@ namespace EntretienSPPP.WinForm
             {
                 MessageBox.Show("Identifiants incorrect !");
             }
-        }
-
-        private void pictureBoxButtonClose_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

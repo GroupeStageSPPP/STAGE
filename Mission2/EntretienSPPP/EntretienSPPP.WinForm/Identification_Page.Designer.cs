@@ -35,10 +35,9 @@
             this.textBoxMotDePasse = new System.Windows.Forms.TextBox();
             this.pictureBoxButtonClose = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxButtonSeConnecter = new System.Windows.Forms.PictureBox();
+            this.buttonSeConnecter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonSeConnecter)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxIdentifiant
@@ -99,28 +98,29 @@
             this.pictureBoxLogo.TabIndex = 7;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // pictureBoxButtonSeConnecter
+            // buttonSeConnecter
             // 
-            this.pictureBoxButtonSeConnecter.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxButtonSeConnecter.BackgroundImage = global::EntretienSPPP.WinForm.Properties.Resources.Button_Login;
-            this.pictureBoxButtonSeConnecter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxButtonSeConnecter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxButtonSeConnecter.Location = new System.Drawing.Point(142, 92);
-            this.pictureBoxButtonSeConnecter.Name = "pictureBoxButtonSeConnecter";
-            this.pictureBoxButtonSeConnecter.Size = new System.Drawing.Size(135, 19);
-            this.pictureBoxButtonSeConnecter.TabIndex = 6;
-            this.pictureBoxButtonSeConnecter.TabStop = false;
-            this.pictureBoxButtonSeConnecter.Click += new System.EventHandler(this.pictureBoxButtonSeConnecter_Click);
+            this.buttonSeConnecter.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.buttonSeConnecter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSeConnecter.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSeConnecter.Location = new System.Drawing.Point(143, 91);
+            this.buttonSeConnecter.Name = "buttonSeConnecter";
+            this.buttonSeConnecter.Size = new System.Drawing.Size(126, 23);
+            this.buttonSeConnecter.TabIndex = 9;
+            this.buttonSeConnecter.Text = "Se connecter";
+            this.buttonSeConnecter.UseVisualStyleBackColor = false;
+            this.buttonSeConnecter.Click += new System.EventHandler(this.buttonSeConnecter_Click);
             // 
             // Identification_Page
             // 
+            this.AcceptButton = this.buttonSeConnecter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(282, 140);
+            this.Controls.Add(this.buttonSeConnecter);
             this.Controls.Add(this.pictureBoxButtonClose);
-            this.Controls.Add(this.pictureBoxButtonSeConnecter);
             this.Controls.Add(this.textBoxMotDePasse);
             this.Controls.Add(this.labelMotDePasse);
             this.Controls.Add(this.labelIndentifiant);
@@ -136,7 +136,6 @@
             this.Text = "Identification";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonSeConnecter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,8 +147,8 @@
         private System.Windows.Forms.Label labelIndentifiant;
         private System.Windows.Forms.Label labelMotDePasse;
         private System.Windows.Forms.TextBox textBoxMotDePasse;
-        private System.Windows.Forms.PictureBox pictureBoxButtonSeConnecter;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.PictureBox pictureBoxButtonClose;
+        private System.Windows.Forms.Button buttonSeConnecter;
     }
 }

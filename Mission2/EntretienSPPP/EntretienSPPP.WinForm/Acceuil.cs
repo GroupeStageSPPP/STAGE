@@ -159,11 +159,9 @@ namespace EntretienSPPP.WinForm
         #region Fonction de l'onglet : ENTRETIEN
 
         #endregion
-
         #region Fonction de l'onglet : RECHERCHE
 
         #endregion
-
         #region Fonction de l'onglet : ADMINISTRATION
             #region Employé
             #region ChargementPAge
@@ -300,7 +298,6 @@ namespace EntretienSPPP.WinForm
 
             #endregion
         #endregion
-
         #region Fonction de l'onglet : OPTION
             private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
             {
@@ -321,9 +318,37 @@ namespace EntretienSPPP.WinForm
                 pleinÉcranToolStripMenuItem.Checked = false;
                 fenêtréToolStripMenuItem.Checked = true;
             }
+            #region Accueil
+                private void panel11_MouseEnter(object sender, EventArgs e)
+                {
+                    panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+                }
+                private void panel11_MouseLeave(object sender, EventArgs e)
+                {
+                    panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                }
+
+                private void panel12_MouseEnter(object sender, EventArgs e)
+                {
+                    panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+                }
+                private void panel12_MouseLeave(object sender, EventArgs e)
+                {
+                    panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                }
+
+                private void panel13_MouseEnter(object sender, EventArgs e)
+                {
+                    panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+                }
+                private void panel13_MouseLeave(object sender, EventArgs e)
+                {
+                    panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                }
+            #endregion
         #endregion
 
-            private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
             {
                 GraphiqueMOI graphMoi = new GraphiqueMOI();
                 graphMoi.ShowDialog();

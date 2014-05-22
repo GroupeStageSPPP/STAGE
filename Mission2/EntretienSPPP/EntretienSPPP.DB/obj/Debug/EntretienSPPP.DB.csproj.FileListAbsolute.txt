@@ -33,3 +33,11 @@ C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Deb
 C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.csprojResolveAssemblyReference.cache
 C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.dll
 C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.pdb
+D:\Users\Pierre\Desktop\Pierre\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.dll.config
+D:\Users\Pierre\Desktop\Pierre\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.dll
+D:\Users\Pierre\Desktop\Pierre\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.DB.pdb
+D:\Users\Pierre\Desktop\Pierre\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.library.dll
+D:\Users\Pierre\Desktop\Pierre\Mission2\EntretienSPPP\EntretienSPPP.DB\bin\Debug\EntretienSPPP.library.pdb
+D:\Users\Pierre\Desktop\Pierre\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.csprojResolveAssemblyReference.cache
+D:\Users\Pierre\Desktop\Pierre\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.dll
+D:\Users\Pierre\Desktop\Pierre\Mission2\EntretienSPPP\EntretienSPPP.DB\obj\Debug\EntretienSPPP.DB.pdb

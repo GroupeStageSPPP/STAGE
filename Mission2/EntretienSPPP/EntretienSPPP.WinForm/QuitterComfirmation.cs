@@ -17,19 +17,14 @@ namespace EntretienSPPP.WinForm
             InitializeComponent();
         }
 
-        private void buttonAnnuler_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void buttonQuitter_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void buttonAnnuler_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

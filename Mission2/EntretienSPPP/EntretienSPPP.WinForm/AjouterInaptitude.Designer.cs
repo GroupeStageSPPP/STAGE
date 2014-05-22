@@ -72,6 +72,7 @@
             this.buttonRetour.TabIndex = 23;
             this.buttonRetour.Text = "Retour";
             this.buttonRetour.UseVisualStyleBackColor = true;
+            this.buttonRetour.Click += new System.EventHandler(this.buttonRetour_Click);
             // 
             // buttonAjouter
             // 
@@ -82,6 +83,7 @@
             this.buttonAjouter.TabIndex = 22;
             this.buttonAjouter.Text = "Enregistrer";
             this.buttonAjouter.UseVisualStyleBackColor = true;
+            this.buttonAjouter.Click += new System.EventHandler(this.buttonAjouter_Click);
             // 
             // radioButtonDéfinitif
             // 

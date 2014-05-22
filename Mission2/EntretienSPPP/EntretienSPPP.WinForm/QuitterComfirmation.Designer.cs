@@ -37,6 +37,7 @@
             // buttonAnnuler
             // 
             this.buttonAnnuler.BackColor = System.Drawing.Color.DimGray;
+            this.buttonAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonAnnuler.Location = new System.Drawing.Point(12, 37);
             this.buttonAnnuler.Name = "buttonAnnuler";
             this.buttonAnnuler.Size = new System.Drawing.Size(75, 23);
@@ -64,7 +65,6 @@
             this.label1.Size = new System.Drawing.Size(161, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Etes-vous sûr de vouloir quitter ?";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // QuitterComfirmation
             // 
@@ -79,7 +79,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuitterComfirmation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Quitter ?";
+            this.Text = "Quitter";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -42,5 +42,16 @@ namespace EntretienSPPP.WinForm
                 dateTimePickerDateFinInaptitude.Enabled = false;
             }
         }
+
+        private void buttonRetour_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void buttonAjouter_Click(object sender, EventArgs e)
+        {
+            //fonction ajouter une inaptuitude.
+            Close();
+        }
     }
 }

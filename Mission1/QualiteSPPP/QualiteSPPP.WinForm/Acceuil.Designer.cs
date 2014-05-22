@@ -31,9 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Acceuil));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelEcranPrincipal = new System.Windows.Forms.Panel();
+            this.panelOptionAcceuil = new System.Windows.Forms.Panel();
             this.panelTestNouveau = new System.Windows.Forms.Panel();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
@@ -119,6 +123,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
+            this.panelAdministrationNouveauEchantillon = new System.Windows.Forms.Panel();
             this.panelAdministrationNouveauFournisseur = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -141,7 +146,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.InformationPerso = new System.Windows.Forms.Label();
-            this.panelAdministrationNouveauEchantillon = new System.Windows.Forms.Panel();
             this.panelAdministartionNouveauPeinture = new System.Windows.Forms.Panel();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
@@ -210,7 +214,6 @@
             this.textBoxLibelleType = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
             this.label31 = new System.Windows.Forms.Label();
-            this.panelOptionAcceuil = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tESTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -235,16 +238,16 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelEcranPrincipal.SuspendLayout();
             this.panelTestNouveau.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
@@ -291,7 +294,6 @@
             this.panelAdministartionNouveauPeinture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
@@ -330,9 +332,6 @@
             this.tableLayoutPanel25.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -373,6 +372,18 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1264, 100);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::QualiteSPPP.WinForm.Properties.Resources.LogoLabo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(432, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(400, 100);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
@@ -408,6 +419,28 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(1264, 585);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(21, 585);
+            this.pictureBox4.TabIndex = 5;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Location = new System.Drawing.Point(1244, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(20, 585);
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            // 
             // panelEcranPrincipal
             // 
             this.panelEcranPrincipal.Controls.Add(this.panelOptionAcceuil);
@@ -427,6 +460,14 @@
             this.panelEcranPrincipal.Name = "panelEcranPrincipal";
             this.panelEcranPrincipal.Size = new System.Drawing.Size(1223, 585);
             this.panelEcranPrincipal.TabIndex = 6;
+            // 
+            // panelOptionAcceuil
+            // 
+            this.panelOptionAcceuil.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelOptionAcceuil.Location = new System.Drawing.Point(0, 0);
+            this.panelOptionAcceuil.Name = "panelOptionAcceuil";
+            this.panelOptionAcceuil.Size = new System.Drawing.Size(1223, 585);
+            this.panelOptionAcceuil.TabIndex = 1;
             // 
             // panelTestNouveau
             // 
@@ -888,7 +929,7 @@
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(3, 82);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(66, 13);
+            this.label36.Size = new System.Drawing.Size(65, 13);
             this.label36.TabIndex = 17;
             this.label36.Text = "Telephone";
             // 
@@ -1005,7 +1046,7 @@
             this.label43.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(3, 40);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(66, 13);
+            this.label43.Size = new System.Drawing.Size(65, 13);
             this.label43.TabIndex = 64;
             this.label43.Text = "Telephone";
             // 
@@ -1225,7 +1266,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(3, 82);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(66, 13);
+            this.label16.Size = new System.Drawing.Size(65, 13);
             this.label16.TabIndex = 17;
             this.label16.Text = "Telephone";
             // 
@@ -1342,7 +1383,7 @@
             this.label10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(0, 40);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 13);
+            this.label10.Size = new System.Drawing.Size(65, 13);
             this.label10.TabIndex = 49;
             this.label10.Text = "Telephone";
             // 
@@ -1389,6 +1430,15 @@
             this.label6.Size = new System.Drawing.Size(195, 17);
             this.label6.TabIndex = 69;
             this.label6.Text = "Ajout d\'un constructeur";
+            // 
+            // panelAdministrationNouveauEchantillon
+            // 
+            this.panelAdministrationNouveauEchantillon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAdministrationNouveauEchantillon.Location = new System.Drawing.Point(0, 0);
+            this.panelAdministrationNouveauEchantillon.Margin = new System.Windows.Forms.Padding(0);
+            this.panelAdministrationNouveauEchantillon.Name = "panelAdministrationNouveauEchantillon";
+            this.panelAdministrationNouveauEchantillon.Size = new System.Drawing.Size(1223, 585);
+            this.panelAdministrationNouveauEchantillon.TabIndex = 2;
             // 
             // panelAdministrationNouveauFournisseur
             // 
@@ -1618,7 +1668,7 @@
             this.label2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 260);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 88;
             this.label2.Text = "Telephone";
             // 
@@ -1649,15 +1699,6 @@
             this.InformationPerso.TabIndex = 69;
             this.InformationPerso.Text = "Ajout d\'un fournisseur";
             // 
-            // panelAdministrationNouveauEchantillon
-            // 
-            this.panelAdministrationNouveauEchantillon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAdministrationNouveauEchantillon.Location = new System.Drawing.Point(0, 0);
-            this.panelAdministrationNouveauEchantillon.Margin = new System.Windows.Forms.Padding(0);
-            this.panelAdministrationNouveauEchantillon.Name = "panelAdministrationNouveauEchantillon";
-            this.panelAdministrationNouveauEchantillon.Size = new System.Drawing.Size(1223, 585);
-            this.panelAdministrationNouveauEchantillon.TabIndex = 2;
-            // 
             // panelAdministartionNouveauPeinture
             // 
             this.panelAdministartionNouveauPeinture.Controls.Add(this.splitContainer4);
@@ -1678,11 +1719,8 @@
             // 
             // splitContainer4.Panel1
             // 
+            this.splitContainer4.Panel1.Controls.Add(this.tableLayoutPanel16);
             this.splitContainer4.Panel1.Controls.Add(this.tableLayoutPanel15);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.tableLayoutPanel16);
             this.splitContainer4.Size = new System.Drawing.Size(1223, 565);
             this.splitContainer4.SplitterDistance = 951;
             this.splitContainer4.SplitterWidth = 1;
@@ -1733,7 +1771,7 @@
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(271, 565);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(951, 565);
             this.tableLayoutPanel16.TabIndex = 0;
             // 
             // panel5
@@ -1751,10 +1789,10 @@
             this.panel5.Controls.Add(this.label23);
             this.panel5.Controls.Add(this.textBoxReferencePeinture);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(27, 56);
+            this.panel5.Location = new System.Drawing.Point(95, 56);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(216, 452);
+            this.panel5.Size = new System.Drawing.Size(760, 452);
             this.panel5.TabIndex = 0;
             // 
             // label19
@@ -1792,6 +1830,11 @@
             // numericUpDownJauneBeu
             // 
             this.numericUpDownJauneBeu.Location = new System.Drawing.Point(119, 183);
+            this.numericUpDownJauneBeu.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.numericUpDownJauneBeu.Name = "numericUpDownJauneBeu";
             this.numericUpDownJauneBeu.Size = new System.Drawing.Size(38, 20);
             this.numericUpDownJauneBeu.TabIndex = 25;
@@ -1799,6 +1842,11 @@
             // numericUpDownRougeVert
             // 
             this.numericUpDownRougeVert.Location = new System.Drawing.Point(119, 157);
+            this.numericUpDownRougeVert.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.numericUpDownRougeVert.Name = "numericUpDownRougeVert";
             this.numericUpDownRougeVert.Size = new System.Drawing.Size(38, 20);
             this.numericUpDownRougeVert.TabIndex = 24;
@@ -1806,6 +1854,11 @@
             // numericUpDownBlancNoir
             // 
             this.numericUpDownBlancNoir.Location = new System.Drawing.Point(119, 131);
+            this.numericUpDownBlancNoir.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.numericUpDownBlancNoir.Name = "numericUpDownBlancNoir";
             this.numericUpDownBlancNoir.Size = new System.Drawing.Size(38, 20);
             this.numericUpDownBlancNoir.TabIndex = 23;
@@ -2497,14 +2550,6 @@
             this.label31.TabIndex = 69;
             this.label31.Text = "Ajout d\'un type produit";
             // 
-            // panelOptionAcceuil
-            // 
-            this.panelOptionAcceuil.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelOptionAcceuil.Location = new System.Drawing.Point(0, 0);
-            this.panelOptionAcceuil.Name = "panelOptionAcceuil";
-            this.panelOptionAcceuil.Size = new System.Drawing.Size(1223, 585);
-            this.panelOptionAcceuil.TabIndex = 1;
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -2589,7 +2634,7 @@
             this.vehiculeToolStripMenuItem,
             this.categorieToolStripMenuItem});
             this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
-            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.nouveauToolStripMenuItem.Text = "Nouveau";
             // 
             // clientToolStripMenuItem
@@ -2675,7 +2720,7 @@
             this.pleinÉcranToolStripMenuItem.Checked = true;
             this.pleinÉcranToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pleinÉcranToolStripMenuItem.Name = "pleinÉcranToolStripMenuItem";
-            this.pleinÉcranToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pleinÉcranToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.pleinÉcranToolStripMenuItem.Text = "Plein écran";
             this.pleinÉcranToolStripMenuItem.Click += new System.EventHandler(this.pleinÉcranToolStripMenuItem_Click);
             // 
@@ -2683,7 +2728,7 @@
             // 
             this.fenêtréToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.fenêtréToolStripMenuItem.Name = "fenêtréToolStripMenuItem";
-            this.fenêtréToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fenêtréToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.fenêtréToolStripMenuItem.Text = "Fenêtré";
             this.fenêtréToolStripMenuItem.Click += new System.EventHandler(this.fenêtréToolStripMenuItem_Click);
             // 
@@ -2692,25 +2737,25 @@
             this.toolStripSeparator1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripSeparator1.ForeColor = System.Drawing.Color.Transparent;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(129, 6);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(132, 22);
             this.toolStripMenuItem2.Text = "Acceuil";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(129, 6);
             // 
             // aideToolStripMenuItem
             // 
             this.aideToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.aideToolStripMenuItem.Text = "Aide";
             // 
             // quitterToolStripMenuItem
@@ -2720,40 +2765,6 @@
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(66, 21);
             this.quitterToolStripMenuItem.Text = "QUITTER";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::QualiteSPPP.WinForm.Properties.Resources.LogoLabo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(432, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 100);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(21, 585);
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(1244, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 585);
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -2803,8 +2814,11 @@
             this.Load += new System.EventHandler(this.Acceuil_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelEcranPrincipal.ResumeLayout(false);
             this.panelTestNouveau.ResumeLayout(false);
             this.splitContainer5.Panel1.ResumeLayout(false);
@@ -2862,7 +2876,6 @@
             this.tableLayoutPanel6.PerformLayout();
             this.panelAdministartionNouveauPeinture.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
@@ -2913,9 +2926,6 @@
             this.tableLayoutPanel3.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

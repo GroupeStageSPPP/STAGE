@@ -45,6 +45,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph">
+      <HintPath>..\..\..\..\zedgraph_dll_v515\zedgraph_dll_v515\zedgraph_dll_v5.1.5\ZedGraph.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceuil.cs">
@@ -64,6 +67,12 @@
     </Compile>
     <Compile Include="AjouterUnEchantillon.Designer.cs">
       <DependentUpon>AjouterUnEchantillon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphiquePeinture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphiquePeinture.Designer.cs">
+      <DependentUpon>GraphiquePeinture.cs</DependentUpon>
     </Compile>
     <Compile Include="Identification_Page.cs">
       <SubType>Form</SubType>
@@ -99,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AjouterUnEchantillon.resx">
       <DependentUpon>AjouterUnEchantillon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphiquePeinture.resx">
+      <DependentUpon>GraphiquePeinture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Identification_Page.resx">
       <DependentUpon>Identification_Page.cs</DependentUpon>

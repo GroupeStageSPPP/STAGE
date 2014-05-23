@@ -3,5 +3,6 @@
 *.zip
 *.pdf
 *.bak
+*/Thumbs.db
 Softwares/*
 Documentation/*

@@ -13,3 +13,8 @@ C:\Users\jeoffrey\Desktop\STAGE\Mission1\QualiteSPPP\QualiteSPPP.Library\bin\Deb
 C:\Users\jeoffrey\Desktop\STAGE\Mission1\QualiteSPPP\QualiteSPPP.Library\obj\Debug\QualiteSPPP.Library.csprojResolveAssemblyReference.cache
 C:\Users\jeoffrey\Desktop\STAGE\Mission1\QualiteSPPP\QualiteSPPP.Library\obj\Debug\QualiteSPPP.Library.dll
 C:\Users\jeoffrey\Desktop\STAGE\Mission1\QualiteSPPP\QualiteSPPP.Library\obj\Debug\QualiteSPPP.Library.pdb
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.Library\bin\Debug\QualiteSPPP.Library.dll
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.Library\bin\Debug\QualiteSPPP.Library.pdb
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.Library\obj\Debug\QualiteSPPP.Library.csprojResolveAssemblyReference.cache
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.Library\obj\Debug\QualiteSPPP.Library.dll
+C:\Users\jeoffrey\Desktop\master\Mission1\QualiteSPPP\QualiteSPPP.Library\obj\Debug\QualiteSPPP.Library.pdb

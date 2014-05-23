@@ -18,3 +18,8 @@ C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.library\bin\
 C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.library\obj\Debug\EntretienSPPP.library.csprojResolveAssemblyReference.cache
 C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.library\obj\Debug\EntretienSPPP.library.dll
 C:\Users\jbblois\Desktop\STAGE\Mission2\EntretienSPPP\EntretienSPPP.library\obj\Debug\EntretienSPPP.library.pdb
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.library\bin\Debug\EntretienSPPP.library.dll
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.library\bin\Debug\EntretienSPPP.library.pdb
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.library\obj\Debug\EntretienSPPP.library.csprojResolveAssemblyReference.cache
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.library\obj\Debug\EntretienSPPP.library.dll
+C:\Users\jeoffrey\Desktop\master\Mission2\EntretienSPPP\EntretienSPPP.library\obj\Debug\EntretienSPPP.library.pdb

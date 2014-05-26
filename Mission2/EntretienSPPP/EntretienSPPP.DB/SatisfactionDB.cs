@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Ambiance, Materiel, Secteur, Cadre, Futur, MesIdees, ReunionService, LaDirection, EvolutionMission, MonService, MonSite, AutreSite  FROM Satisfaction";
+            String requete = @"SELECT Identifiant, Ambiance, Materiel, Secteur, Cadre, Futur, MesIdees, ReunionService, LaDirection, EvolutionMission, MonService, MonSite, AutreSite  
+                                FROM Satisfaction";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -73,7 +73,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, Ambiance, Materiel, Secteur, Cadre, Futur, MesIdees, ReunionService, LaDirection, EvolutionMission, MonService, MonSite, AutreSite FROM Satisfaction
+            String requete = @"SELECT Identifiant, Ambiance, Materiel, Secteur, Cadre, Futur, MesIdees, ReunionService, LaDirection, EvolutionMission, MonService, MonSite, AutreSite 
+                                FROM Satisfaction
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -99,12 +100,90 @@ namespace EntretienSPPP.DB
             satisfaction.ReunionService = dataReader.GetInt16(7);
             satisfaction.LaDirection = dataReader.GetInt16(8);
             satisfaction.EvolutionMission = dataReader.GetString(9);
-            satisfaction.MonService = dataReader.GetString(10);
-            satisfaction.MonSite = dataReader.GetString(11);
-            satisfaction.AutreSite = dataReader.GetString(12);
+            satisfaction.MonService = dataReader.GetString(9);
+            satisfaction.MonSite = dataReader.GetString(10);
+            satisfaction.AutreSite = dataReader.GetString(11);
             dataReader.Close();
             connection.Close();
             return satisfaction;
+        }
+
+        public static void Insert(Satisfaction satisfaction)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"INSERT INTO Satisfaction (Ambiance, Materiel, Secteur, Cadre, Futur, MesIdees, ReunionService, LaDirection, EvolutionMission, MonService, MonSite, AutreSite)
+                                VALUES (@Ambiance, @Materiel, @Secteur, @Cadre, @Futur, @MesIdees, @ReunionService, @LaDirection, @EvolutionMission, @MonService, @MonSite, @AutreSite)";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Ambiance", satisfaction.Ambiance);
+            commande.Parameters.AddWithValue("Materiel", satisfaction.Materiel);
+            commande.Parameters.AddWithValue("Cadre", satisfaction.Cadre);
+            commande.Parameters.AddWithValue("Futur", satisfaction.Futur);
+            commande.Parameters.AddWithValue("MesIdees", satisfaction.MesIdees);
+            commande.Parameters.AddWithValue("ReunionService", satisfaction.ReunionService);
+            commande.Parameters.AddWithValue("LaDirection", satisfaction.LaDirection);
+            commande.Parameters.AddWithValue("EvolutionMission", satisfaction.EvolutionMission);
+            commande.Parameters.AddWithValue("MonService", satisfaction.MonService);
+            commande.Parameters.AddWithValue("MonSite", satisfaction.MonSite);
+            commande.Parameters.AddWithValue("AutreSite", satisfaction.AutreSite);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Update(Satisfaction satisfaction)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"UPDATE Satisfaction 
+                               SET Ambiance = @Ambiance, Materiel = @Materiel, Secteur = @Secteur, Cadre = @Cadre, Futur = @Futur, MesIdees = @MesIdees, ReunionService = @ReunionService, LaDirection = @LaDirection, EvolutionMission = @EvolutionMission, MonService = @MonService, MonSite = @MonSite, AutreSite = @AutreSite
+                               WHERE Identifiant = @Identifiant";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", satisfaction.Identifiant);
+            commande.Parameters.AddWithValue("Ambiance", satisfaction.Ambiance);
+            commande.Parameters.AddWithValue("Materiel", satisfaction.Materiel);
+            commande.Parameters.AddWithValue("Cadre", satisfaction.Cadre);
+            commande.Parameters.AddWithValue("Futur", satisfaction.Futur);
+            commande.Parameters.AddWithValue("MesIdees", satisfaction.MesIdees);
+            commande.Parameters.AddWithValue("ReunionService", satisfaction.ReunionService);
+            commande.Parameters.AddWithValue("LaDirection", satisfaction.LaDirection);
+            commande.Parameters.AddWithValue("EvolutionMission", satisfaction.EvolutionMission);
+            commande.Parameters.AddWithValue("MonService", satisfaction.MonService);
+            commande.Parameters.AddWithValue("MonSite", satisfaction.MonSite);
+            commande.Parameters.AddWithValue("AutreSite", satisfaction.AutreSite);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Delete(Int32 Identifiant)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"DELETE FROM Satisfaction 
+                               WHERE Identifiant = @Identifiant";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

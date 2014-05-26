@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Type FROM Habilite ;";
+            String requete = @"SELECT Identifiant, Type 
+                                FROM Habilite ;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -60,7 +60,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, Type FROM Habilite
+            String requete = @"SELECT Identifiant, Type 
+                                FROM Habilite
                                 WHERE Identifiant = @Identifiant ;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -83,114 +84,64 @@ namespace EntretienSPPP.DB
             return habilite;
         }
 
-        public static Boolean update(Habilite habilite)
+        public static void Insert(Habilite habilite)
         {
-            Boolean isUpDAte = false ;
-            //mettre a jour la base de donnée
-            // retourne un boulean si l'update ses bien dérouler
-
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
 
-            String requete = @"Update habilite set type = @type where identifiant = @identifiant  ;";
-            
+            String requete = @"INSERT INTO Habilite(Type) 
+                                VALUES (@Type);";
             SqlCommand commande = new SqlCommand(requete, connection);
+            //Paramètres
+            commande.Parameters.AddWithValue("Type", habilite.Type);
 
-            commande.Parameters.AddWithValue("Libelle", habilite.Type);
-            commande.Parameters.AddWithValue("identifiant", habilite.Identifiant);
 
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isUpDAte = true;
-            }
-
-            catch (Exception)
-            {
-                isUpDAte = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-            
-            return isUpDAte;
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Boolean delete(Habilite habilite)
+        public static void Update(Habilite habilite)
         {
-            Boolean isDelete = false;
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-            String requete = @"DELETE FROM habilite WHERE Identifiant = @Identifiant ; ";
-
+            //Commande
+            String requete = @"UPDATE Habilite set Type = @Type, 
+                                WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
-
+            //Paramètres
             commande.Parameters.AddWithValue("Identifiant", habilite.Identifiant);
+            commande.Parameters.AddWithValue("Type", habilite.Type);
 
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isDelete = true;
-            }
 
-            catch (Exception)
-            {
-                isDelete = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return isDelete;
-
-      
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Habilite CreateHabilite(Habilite habilite)
+        public static void Delete(Int32 Identifiant)
         {
-
+            //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-
-            String requete = @"Insert INTO habilite(type) Values (@type); SELECT SCOPE_IDENTITY() ; ";
-
+            //Commande
+            String requete = @"DELETE FROM Habilite 
+                               WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
-            commande.Parameters.AddWithValue("libelle", habilite.Type);
-            
-           
-              try
-            {
-                connection.Open();
-                Decimal IDENTIFIANTDERNIERAJOUT = (Decimal)commande.ExecuteScalar();
-                return HabiliteDB.Get(Int32.Parse(IDENTIFIANTDERNIERAJOUT.ToString()));
-                
-            }
-
-            catch (Exception)
-            {
-                throw;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-           
-            }
-
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
             
         
     }

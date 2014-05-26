@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, IdentifiantOrganisme, Titre, Objectif, Interne, Externe FROM Formation ;";
+            String requete = @"SELECT Identifiant, IdentifiantOrganisme, Titre, Objectif, Interne, Externe 
+                                FROM Formation ;";
 
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
@@ -64,7 +64,9 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, IdentifiantOrganisme, Titre, Objectif, Interne, Externe FROM Formation WHERE Identifiant = @Identifiant ;";
+            String requete = @"SELECT Identifiant, IdentifiantOrganisme, Titre, Objectif, Interne, Externe 
+                                FROM Formation 
+                                WHERE Identifiant = @Identifiant ;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
@@ -85,123 +87,76 @@ namespace EntretienSPPP.DB
             return formation;
         }
 
-         public static Boolean update(Formation formation)
+        public static void Insert(Formation_Personne formationPersonne)
         {
-            Boolean isUpDAte = false ;
-            //mettre a jour la base de donnée
-            // retourne un boulean si l'update ses bien dérouler
-
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
 
-            String requete = @"Update Formation set organisme = @organisme,Titre = @Titre, Objectif = @Objectif, interne = @interne, externe = @externe where identifiant = @identifiant  ;";
-            
+            String requete = @"INSERT INTO EvalutationMoi(Annee, Contenu, Documentation, Formateur, AvisResponsable, IdentifiantFormation, IdentifiantPersonne,IdentifiantOrganisme) 
+                                VALUES (@Annee, @Contenu, @Documentation, @Formateur, @AvisResponsable, @IdentifiantFormation, @IdentifiantPersonne, @IdentifiantOrganisme);";
             SqlCommand commande = new SqlCommand(requete, connection);
+            //Paramètres
+            commande.Parameters.AddWithValue("Annee", formationPersonne.Annee);
+            commande.Parameters.AddWithValue("Contenu", formationPersonne.Contenu);
+            commande.Parameters.AddWithValue("Documentation", formationPersonne.Documentation);
+            commande.Parameters.AddWithValue("Formateur", formationPersonne.Formateur);
+            commande.Parameters.AddWithValue("AvisResponsable", formationPersonne.AvisResponsable);
+            commande.Parameters.AddWithValue("IdentifiantFormation", formationPersonne.formation.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", formationPersonne.personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantOrganisme", formationPersonne.organisme.Identifiant);
 
-            commande.Parameters.AddWithValue("organisme", formation.organisme);
-            commande.Parameters.AddWithValue("Titre", formation.Titre);
-            commande.Parameters.AddWithValue("Objectif", formation.Objectif);
-            commande.Parameters.AddWithValue("interne", formation.Interne);
-            commande.Parameters.AddWithValue("externe", formation.Externe);
-             commande.Parameters.AddWithValue("Identifiant", formation.Identifiant);
 
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isUpDAte = true;
-            }
-
-            catch (Exception)
-            {
-                isUpDAte = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-            
-            return isUpDAte;
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Boolean delete(Formation formation)
+        public static void Update(Formation_Personne formationPersonne)
         {
-            Boolean isDelete = false;
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-            String requete = @"DELETE FROM Formation WHERE Identifiant = @Identifiant ;";
-
+            //Commande
+            String requete = @"UPDATE Formation_Personne set Annee = @Annee, Contenu = @Contenu, Documentation = @Documentation, Formateur = @Formateur, AvisResponsable =@AvisResponsable, IdentifiantFormation = @IdentifiantFormation, IdentifiantPersonne = @IdentifiantPersonne, IdentifiantOrganisme = @IdentifiantOrganisme WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
+            //Paramètres
+            commande.Parameters.AddWithValue("Annee", formationPersonne.Annee);
+            commande.Parameters.AddWithValue("Contenu", formationPersonne.Contenu);
+            commande.Parameters.AddWithValue("Documentation", formationPersonne.Documentation);
+            commande.Parameters.AddWithValue("Formateur", formationPersonne.Formateur);
+            commande.Parameters.AddWithValue("AvisResponsable", formationPersonne.AvisResponsable);
+            commande.Parameters.AddWithValue("IdentifiantFormation", formationPersonne.formation.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", formationPersonne.personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantOrganisme", formationPersonne.organisme.Identifiant);
+            commande.Parameters.AddWithValue("Identifiant", formationPersonne.Identifiant);
 
-            commande.Parameters.AddWithValue("Identifiant", formation.Identifiant);
-
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isDelete = true;
-            }
-
-            catch (Exception)
-            {
-                isDelete = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return isDelete;
-
-      
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Formation CreateFormation (Formation formation)
+        public static void Delete(Int32 Identifiant)
         {
-            
+            //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-
-            String requete = @"Insert INTO formation(organisme,Titre,Objectif,Interne,Externe) Values (@organisme,@Titre,@Objectif,@Interne,@Externe); SELECT SCOPE_IDENTITY() ;";
-
+            //Commande
+            String requete = @"DELETE FROM Formation_Personne 
+                               WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
-            commande.Parameters.AddWithValue("organisme",formation.organisme);
-            commande.Parameters.AddWithValue("Titre",formation.Titre);
-            commande.Parameters.AddWithValue("Objectif",formation.Objectif);
-            commande.Parameters.AddWithValue("Interne",formation.Interne);
-            commande.Parameters.AddWithValue("Externe",formation.Externe);
-            
-           
-              try
-            {
-                connection.Open();
-                Decimal IDENTIFIANTDERNIERAJOUT = (Decimal)commande.ExecuteScalar();
-                return FormationDB.Get(Int32.Parse(IDENTIFIANTDERNIERAJOUT.ToString()));
-                
-            }
-
-            catch (Exception)
-            {
-                throw;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-           
-            }
-
-            
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
     }
+}
 

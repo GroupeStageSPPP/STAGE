@@ -15,7 +15,8 @@ namespace EntretienSPPP.library
         public string Mesure { get; set; }
         public string Description { get; set; }
         public string Resultat { get; set; }
-        public int IdentifiantEntretien { get; set; }
+        public Entretien Entretien { get; set; }
+
         #endregion
         #region Constructeur
         public Objectif()

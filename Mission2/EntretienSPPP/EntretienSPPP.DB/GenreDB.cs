@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Libelle FROM Genre ;";
+            String requete = @"SELECT Identifiant, Libelle 
+                               FROM Genre ;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -59,7 +59,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, Libelle FROM Genre
+            String requete = @"SELECT Identifiant, Libelle 
+                                FROM Genre
                                 WHERE Identifiant = @Identifiant ;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -82,116 +83,67 @@ namespace EntretienSPPP.DB
             return genre;
         }
 
-        public static Boolean update(Genre genre)
-        {
-            Boolean isUpDAte = false ;
-            //mettre a jour la base de donnée
-            // retourne un boulean si l'update ses bien dérouler
 
+
+        public static void Insert(Genre genre)
+        {
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
 
-            String requete = @"Update genre set libelle = @libelle where identifiant = @identifiant  ;";
-            
+            String requete = @"INSERT INTO Genre(Libelle) 
+                               VALUES (@Libelle);";
             SqlCommand commande = new SqlCommand(requete, connection);
-
+            //Paramètres
             commande.Parameters.AddWithValue("Libelle", genre.libelle);
-            commande.Parameters.AddWithValue("identifiant", genre.Identifiant);
 
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isUpDAte = true;
-            }
 
-            catch (Exception)
-            {
-                isUpDAte = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-            
-            return isUpDAte;
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Boolean delete(Genre genre)
+        public static void Update(Genre genre)
         {
-            Boolean isDelete = false;
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-            String requete = @"DELETE FROM genre WHERE Identifiant = @Identifiant ; ";
-
+            //Commande
+            String requete = @"UPDATE genre 
+                                SET Libelle = @Libelle, 
+                                WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
-
+            //Paramètres
             commande.Parameters.AddWithValue("Identifiant", genre.Identifiant);
+            commande.Parameters.AddWithValue("Libelle", genre.libelle);
 
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isDelete = true;
-            }
 
-            catch (Exception)
-            {
-                isDelete = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return isDelete;
-
-      
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Genre CreateGenre (Genre genre)
+        public static void Delete(Int32 Identifiant)
         {
-            
+            //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-
-            String requete = @"Insert INTO genre(libelle) Values (@libelle); SELECT SCOPE_IDENTITY() ; ";
-
+            //Commande
+            String requete = @"DELETE FROM Genre 
+                               WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
-            commande.Parameters.AddWithValue("libelle",genre.libelle);
-            
-           
-              try
-            {
-                connection.Open();
-                Decimal IDENTIFIANTDERNIERAJOUT = (Decimal)commande.ExecuteScalar();
-                return GenreDB.Get(Int32.Parse(IDENTIFIANTDERNIERAJOUT.ToString()));
-                
-            }
-
-            catch (Exception)
-            {
-                throw;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-           
-            }
-
-            
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
-
     }
+}
 

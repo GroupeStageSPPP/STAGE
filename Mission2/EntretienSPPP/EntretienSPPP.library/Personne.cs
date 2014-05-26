@@ -23,6 +23,8 @@ namespace EntretienSPPP.library
         public string Mail { get; set; }
         public Famille famille { get; set; }
         public Genre genre { get; set; }
+        public Competence competence { get; set; }
+
         #endregion
 
         #region Constructeurs

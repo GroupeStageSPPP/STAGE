@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Libelle, Telephone, Adresse FROM Organisme";
+            String requete = @"SELECT Identifiant, Libelle, Telephone, Adresse 
+                                FROM Organisme";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -61,7 +61,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, Libelle, Telephone, Adresse FROM Organisme
+            String requete = @"SELECT Identifiant, Libelle, Telephone, Adresse 
+                                FROM Organisme
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -114,7 +115,7 @@ namespace EntretienSPPP.DB
              //Commande
              String requete = @"INSERT INTO Organisme 
                                 SET Libelle = @Libelle, Telephone = @Telephone, Adresse = @Adresse
-                                WHERE Identifiant =  @Ientifiant";
+                                WHERE Identifiant =  @Identifiant";
              SqlCommand commande = new SqlCommand(requete, connection);
 
              //Paramètres

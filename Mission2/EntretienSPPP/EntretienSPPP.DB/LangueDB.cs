@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Libelle FROM Langue ;";
+            String requete = @"SELECT Identifiant, Libelle 
+                                FROM Langue ;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -58,7 +58,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, Libelle FROM Langue
+            String requete = @"SELECT Identifiant, Libelle 
+                                FROM Langue
                                 WHERE Identifiant = @Identifiant ;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -81,115 +82,69 @@ namespace EntretienSPPP.DB
             return langue;
         }
 
-        public static Boolean update(Langue langue)
+        public static void Insert(Langue languePersonne)
         {
-            Boolean isUpDAte = false ;
-            //mettre a jour la base de donnée
-            // retourne un boulean si l'update ses bien dérouler
-
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
 
-            String requete = @"Update Langue set libelle = @libelle where identifiant = @identifiant  ;";
-            
+            String requete = @"INSERT INTO Langue(Libelle) 
+                                VALUES (@Libelle);";
             SqlCommand commande = new SqlCommand(requete, connection);
+            //Paramètres
 
-            commande.Parameters.AddWithValue("Libelle", langue.Libelle);
-            commande.Parameters.AddWithValue("identifiant", langue.Identifiant);
+            commande.Parameters.AddWithValue("Libelle", languePersonne.Libelle);
 
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isUpDAte = true;
-            }
 
-            catch (Exception)
-            {
-                isUpDAte = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-            
-            return isUpDAte;
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Boolean delete(Langue langue)
+        public static void Update(Langue languePersonne)
         {
-            Boolean isDelete = false;
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-            String requete = @"DELETE FROM langue WHERE Identifiant = @Identifiant ; ";
-
+            //Commande
+            String requete = @"UPDATE Langue 
+                                SET Libelle = @Libelle 
+                                WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", languePersonne.Identifiant);
+            commande.Parameters.AddWithValue("Libelle", languePersonne.Libelle);
 
-            commande.Parameters.AddWithValue("Identifiant", langue.Identifiant);
 
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isDelete = true;
-            }
 
-            catch (Exception)
-            {
-                isDelete = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return isDelete;
-
-      
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Langue CreateLangue(Langue langue)
+        public static void Delete(Int32 Identifiant)
         {
-
+            //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-
-            String requete = @"Insert INTO langue(libelle) Values (@libelle); SELECT SCOPE_IDENTITY() ; ";
-
+            //Commande
+            String requete = @"DELETE FROM Langue 
+                               WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
-            commande.Parameters.AddWithValue("libelle", langue.Libelle);
-            
-           
-              try
-            {
-                connection.Open();
-                Decimal IDENTIFIANTDERNIERAJOUT = (Decimal)commande.ExecuteScalar();
-                return LangueDB.Get(Int32.Parse(IDENTIFIANTDERNIERAJOUT.ToString()));
-                
-            }
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
 
-            catch (Exception)
-            {
-                throw;
-            }
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
 
-            finally
-            {
-                connection.Close();
-            }
-
-           
-            }
-
-            
         
     }
 }

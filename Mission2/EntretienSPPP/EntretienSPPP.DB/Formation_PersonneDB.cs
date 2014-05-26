@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Annee, Contenu, Documentation, Formateur, AvisResponsable, IdentifiantFormation, IdentifiantPersonne, IdentifiantOrganisme FROM Formation_Personne";
+            String requete = @"SELECT Identifiant, Annee, Contenu, Documentation, Formateur, AvisResponsable, IdentifiantFormation, IdentifiantPersonne, IdentifiantOrganisme 
+                                FROM Formation_Personne";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -94,6 +94,78 @@ namespace EntretienSPPP.DB
             dataReader.Close();
             connection.Close();
             return formationPersonne;
+        }
+
+
+        public static void Insert(Formation_Personne formationPersonne)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+
+            String requete = @"Insert INTO Formation_Personne(Annee, Contenu, Documentation, Formateur, AvisResponsable, IdentifiantFormation, IdentifiantPersonne,IdentifiantOrganisme) Values (@Annee, @Contenu, @Documentation, @Formateur, @AvisResponsable, @IdentifiantFormation, @IdentifiantPersonne, @IdentifiantOrganisme);";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Annee", formationPersonne.Annee);
+            commande.Parameters.AddWithValue("Contenu", formationPersonne.Contenu);
+            commande.Parameters.AddWithValue("Documentation", formationPersonne.Documentation);
+            commande.Parameters.AddWithValue("Formateur", formationPersonne.Formateur);
+            commande.Parameters.AddWithValue("AvisResponsable", formationPersonne.AvisResponsable);
+            commande.Parameters.AddWithValue("IdentifiantFormation", formationPersonne.formation.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", formationPersonne.personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantOrganisme", formationPersonne.organisme.Identifiant);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Update(Formation_Personne formationPersonne)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"UPDATE Formation_Personne set Annee = @Annee, Contenu = @Contenu, Documentation = @Documentation, Formateur = @Formateur, AvisResponsable =@AvisResponsable, IdentifiantFormation = @IdentifiantFormation, IdentifiantPersonne = @IdentifiantPersonne, IdentifiantOrganisme = @IdentifiantOrganisme 
+                                WHERE identifiant = @Identifiant ;";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", formationPersonne.Identifiant);
+            commande.Parameters.AddWithValue("Annee", formationPersonne.Annee);
+            commande.Parameters.AddWithValue("Contenu", formationPersonne.Contenu);
+            commande.Parameters.AddWithValue("Documentation", formationPersonne.Documentation);
+            commande.Parameters.AddWithValue("Formateur", formationPersonne.Formateur);
+            commande.Parameters.AddWithValue("AvisResponsable", formationPersonne.AvisResponsable);
+            commande.Parameters.AddWithValue("IdentifiantFormation", formationPersonne.formation.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", formationPersonne.personne.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantOrganisme", formationPersonne.organisme.Identifiant);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Delete(Int32 Identifiant)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"DELETE FROM Formation_Personne 
+                               WHERE Identifiant = @Identifiant";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
+
 namespace EntretienSPPP.library
 {
     public class Langue_Personne
@@ -14,7 +16,7 @@ namespace EntretienSPPP.library
         #region Propriétés
         public int Identifiant { get; set; }
         public string niveau { get; set; }
-        public string Utilite { get; set; }
+        public char Utilite { get; set; }
         public Langue langue { get; set; }
         public Personne personne { get; set; }
 

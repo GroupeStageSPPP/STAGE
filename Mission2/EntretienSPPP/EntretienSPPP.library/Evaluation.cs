@@ -20,6 +20,8 @@ namespace EntretienSPPP.library
         public Int16 Motivation { get; set; }
         public Int16 Autonomie { get; set; }
         public Int16 RespectConsigne { get; set; }
+        public string Commentaire { get; set; }
+
 
         #endregion
 

@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,7 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Nom, Prenom, DateNaissance, Rue, Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, Telephone, Mail FROM Personne";
+            String requete = "SELECT Identifiant, Nom, Prenom, DateNaissance, Rue, Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, IdentifiantCompetence, Telephone, Mail FROM Personne";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -45,8 +44,9 @@ namespace EntretienSPPP.DB
                 personne.CodePostal = dataReader.GetString(6);
                 personne.genre.Identifiant = dataReader.GetInt32(7);
                 personne.famille.Identifiant = dataReader.GetInt32(8);
-                personne.Telephone = dataReader.GetString(9);
-                personne.Mail = dataReader.GetString(10);
+                personne.competence.Identifiant = dataReader.GetInt32(9);
+                personne.Telephone = dataReader.GetString(10);
+                personne.Mail = dataReader.GetString(11);
 
 
 
@@ -69,7 +69,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, Nom, Prenom, DateNaissance, Rue, Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, Telephone, Mail FROM Personne
+            String requete = @"SELECT Identifiant, Nom, Prenom, DateNaissance, Rue, Ville, CodePostal, IdentifiantGenre, IdentifiantFamille, IdentifiantCompetence, Telephone, Mail 
+                                FROM Personne
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -94,8 +95,8 @@ namespace EntretienSPPP.DB
             personne.CodePostal = dataReader.GetString(6);
             personne.genre.Identifiant = dataReader.GetInt32(7);
             personne.famille.Identifiant = dataReader.GetInt32(8);
-            personne.Telephone = dataReader.GetString(9);
-            personne.Mail = dataReader.GetString(10);
+            personne.Telephone = dataReader.GetString(10);
+            personne.Mail = dataReader.GetString(11);
             dataReader.Close();
             connection.Close();
 
@@ -139,11 +140,13 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"UPDATE Personne SET Nom = @Nom, Prenom = @Prenom, DateNaissance = @DateNaissance, Ville = @Ville, CodePostal = @CodePostal, Telephone = @Telephone, Mail = @Mail, IdentifiantFamille = @IdentifiantFamille, IdentifiantGenre = @IdentifiantGenre
-                               WHERE ";
+            String requete = @"UPDATE Personne 
+                               SET Nom = @Nom, Prenom = @Prenom, DateNaissance = @DateNaissance, Ville = @Ville, CodePostal = @CodePostal, Telephone = @Telephone, Mail = @Mail, IdentifiantFamille = @IdentifiantFamille, IdentifiantGenre = @IdentifiantGenre
+                               WHERE identifiant = @identifiant ";
             SqlCommand commande = new SqlCommand(requete, connection);
 
             //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Personne.Identifiant);
             commande.Parameters.AddWithValue("Nom", Personne.Nom);
             commande.Parameters.AddWithValue("Prenom", Personne.Prenom);
             commande.Parameters.AddWithValue("DateNaissance", Personne.DateNaissance);

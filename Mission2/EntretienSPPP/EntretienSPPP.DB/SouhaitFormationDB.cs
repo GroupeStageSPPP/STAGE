@@ -22,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien FROM SouhaitFormation";
+            String requete = @"SELECT Identifiant, Objectif, Interne, Externe, AvisPersonne, AvisResponsable, IdentifiantEntretien 
+                                FROM SouhaitFormation";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution

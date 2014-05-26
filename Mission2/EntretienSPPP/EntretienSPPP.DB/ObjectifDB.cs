@@ -5,12 +5,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
 {
-    class ObjectifDB
+    public static class ObjectifDB
     {
         /// <summary>
         /// Récupère une liste de Objectif à partir de la base de données
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT IdentifiantEntretien, Mesure, Description, Resultat,IdentifiantEntretien FROM Objectif ;";
+            String requete = @"SELECT Identifiant, Mesure, Description, Resultat,IdentifiantEntretien 
+                                FROM Objectif ;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -36,11 +36,11 @@ namespace EntretienSPPP.DB
 
                 //1 - Créer un Objectif à partir des donner de la ligne du dataReader
                 Objectif objectif = new Objectif();
-                objectif.IdentifiantEntretien = dataReader.GetInt32(0);
+                objectif.Identifiant = dataReader.GetInt32(0);
                 objectif.Mesure = dataReader.GetString(1);
                 objectif.Description = dataReader.GetString(2);
                 objectif.Resultat = dataReader.GetString(3);
-                objectif.IdentifiantEntretien = dataReader.GetInt32(4);
+                objectif.Entretien.Identifiant = dataReader.GetInt32(4);
 
 
                 //2 - Ajouter ce Objectif à la list de client
@@ -62,7 +62,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT  Identifiant,Mesure,Description, Resultat,IdentifiantEntretien FROM Objectif
+            String requete = @"SELECT  Identifiant, Mesure, Description, Resultat, IdentifiantEntretien 
+                                FROM Objectif
                                 WHERE Identifiant = @Identifiant ; ";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -83,126 +84,81 @@ namespace EntretienSPPP.DB
             objectif.Mesure = dataReader.GetString(1);
             objectif.Description = dataReader.GetString(2);
             objectif.Resultat = dataReader.GetString(3);
-            objectif.IdentifiantEntretien = dataReader.GetInt32(4);
+            objectif.Entretien.Identifiant = dataReader.GetInt32(4);
             dataReader.Close();
             connection.Close();
             return objectif;
         }
-        public static Boolean update(Objectif objectif)
-        {
-            Boolean isUpDAte = false ;
-            //mettre a jour la base de donnée
-            // retourne un boulean si l'update ses bien dérouler
 
+
+        public static void Insert(Objectif objectif)
+        {
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
 
-            String requete = @"Update objectif set Mesure = @Mesure,Description = @Description,Resultat = @Resultat, IdentifiantEntretien = @IdentifiantEntretien where identifiant = @identifiant  ;";
-            
+            String requete = @"INSERT INTO Objectif(Mesure, Description, Resultat, IdentifiantEntretien) 
+                                VALUES (@Mesure, @Description, @Resultat, @IdentifiantEntretien);";
             SqlCommand commande = new SqlCommand(requete, connection);
+            //Paramètres
 
             commande.Parameters.AddWithValue("Mesure", objectif.Mesure);
             commande.Parameters.AddWithValue("Description", objectif.Description);
             commande.Parameters.AddWithValue("Resultat", objectif.Resultat);
-            commande.Parameters.AddWithValue("IdentifiantEntretien", objectif.IdentifiantEntretien);
-            commande.Parameters.AddWithValue("identifiant", objectif.Identifiant);
-            
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isUpDAte = true;
-            }
+            commande.Parameters.AddWithValue("IdentifiantEntretien", objectif.Entretien.Identifiant);
 
-            catch (Exception)
-            {
-                isUpDAte = false;
-            }
 
-            finally
-            {
-                connection.Close();
-            }
-            
-            return isUpDAte;
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Boolean delete(Objectif objectif)
+        public static void Update(Objectif objectif)
         {
-            Boolean isDelete = false;
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-            String requete = @"DELETE FROM objectif WHERE Identifiant = @Identifiant ; ";
-
+            //Commande
+            String requete = @"UPDATE Objectif 
+                                SET Mesure = @Mesure, Description = @Description, Resultat =  @Resultat, IdentifiantEntretien = @IdentifiantEntretien 
+                                WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
-
+            //Paramètres
             commande.Parameters.AddWithValue("Identifiant", objectif.Identifiant);
-
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isDelete = true;
-            }
-
-            catch (Exception)
-            {
-                isDelete = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return isDelete;
-
-      
-        }
-
-        public static Objectif CreateGroupe(Objectif objectif)
-        {
-
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
-            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-
-            String requete = @"Insert INTO objectif(Mesure,Description,Resultat,IdentifiantEntretien) Values (@Mesure,@Description,@Resultat,@IdentifiantEntretien); SELECT SCOPE_IDENTITY() ; ";
-
-            SqlCommand commande = new SqlCommand(requete, connection);
-
-            commande.Parameters.AddWithValue("Mesure",objectif.Mesure);
+            commande.Parameters.AddWithValue("Mesure", objectif.Mesure);
             commande.Parameters.AddWithValue("Description", objectif.Description);
             commande.Parameters.AddWithValue("Resultat", objectif.Resultat);
-            commande.Parameters.AddWithValue("IdentifiantEntretien", objectif.IdentifiantEntretien);
-            
-           
-              try
-            {
-                connection.Open();
-                Decimal IDENTIFIANTDERNIERAJOUT = (Decimal)commande.ExecuteScalar();
-                return ObjectifDB.Get(Int32.Parse(IDENTIFIANTDERNIERAJOUT.ToString()));
-                
-            }
+            commande.Parameters.AddWithValue("IdentifiantEntretien", objectif.Entretien.Identifiant);
 
-            catch (Exception)
-            {
-                throw;
-            }
 
-            finally
-            {
-                connection.Close();
-            }
 
-           
-            }
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
 
-            
-        
+        public static void Delete(Int32 Identifiant)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"DELETE FROM Objectif 
+                               WHERE Identifiant = @Identifiant";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

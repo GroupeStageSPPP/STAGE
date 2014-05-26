@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Descriptif FROM Inaptitude ;";
+            String requete = @"SELECT Identifiant, Descriptif 
+                                FROM Inaptitude ;";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -59,7 +59,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, Descriptif FROM Inaptitude
+            String requete = @"SELECT Identifiant, Descriptif 
+                                FROM Inaptitude
                                 WHERE Identifiant = @Identifiant ;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -81,113 +82,66 @@ namespace EntretienSPPP.DB
             connection.Close();
             return inaptitude;
         }
-        public static Boolean update(Inaptitude inaptitude)
+        public static void Insert(Inaptitude inaptitude)
         {
-            Boolean isUpDAte = false ;
-            //mettre a jour la base de donnée
-            // retourne un boulean si l'update ses bien dérouler
-
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
 
-            String requete = @"Update Inaptitude set Descriptif = @Descriptif where identifiant = @identifiant  ;";
-            
+            String requete = @"INSERT INTO Inaptitude(Descriptif) 
+                                VALUES (@Descriptif);";
             SqlCommand commande = new SqlCommand(requete, connection);
+            //Paramètres
 
-            commande.Parameters.AddWithValue("Descriptif", inaptitude.Descriptif);
-            commande.Parameters.AddWithValue("identifiant", inaptitude.Identifiant);
+            commande.Parameters.AddWithValue("Definitif", inaptitude.Descriptif);
 
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isUpDAte = true;
-            }
 
-            catch (Exception)
-            {
-                isUpDAte = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-            
-            return isUpDAte;
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Boolean delete(Inaptitude inaptitude)
+        public static void Update(Inaptitude inaptitude)
         {
-            Boolean isDelete = false;
             //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-            String requete = @"DELETE FROM Inaptitude WHERE Identifiant = @Identifiant ; ";
-
+            //Commande
+            String requete = @"UPDATE Inaptitude 
+                               SET Descriptif = @Descriptif 
+                               WHERE Identifiant = @Identifiant;";
             SqlCommand commande = new SqlCommand(requete, connection);
 
-
+            //Paramètres
             commande.Parameters.AddWithValue("Identifiant", inaptitude.Identifiant);
+            commande.Parameters.AddWithValue("DateFin", inaptitude.Descriptif);
 
-            try
-            {
-                connection.Open();
-                commande.ExecuteNonQuery();
-                isDelete = true;
-            }
 
-            catch (Exception)
-            {
-                isDelete = false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return isDelete;
-
-      
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
 
-        public static Inaptitude CreateInaptitude(Inaptitude inaptitude)
+        public static void Delete(Int32 Identifiant)
         {
-
+            //Connection
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
-
-
-            String requete = @"Insert INTO Inaptitude(Descriptif) Values (@Descriptif); SELECT SCOPE_IDENTITY() ; ";
-
+            //Commande
+            String requete = @"DELETE FROM Inaptitude 
+                               WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
-            commande.Parameters.AddWithValue("libelle", inaptitude.Descriptif);
-            
-           
-              try
-            {
-                connection.Open();
-                Decimal IDENTIFIANTDERNIERAJOUT = (Decimal)commande.ExecuteScalar();
-                return InaptitudeDB.Get(Int32.Parse(IDENTIFIANTDERNIERAJOUT.ToString()));
-                
-            }
-
-            catch (Exception)
-            {
-                throw;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-           
-            }
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
 
             
         

@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Niveau, Utilite, IdentifiantLangue, IdentifiantPersonne FROM Langue_Personne";
+            String requete = @"SELECT Identifiant, Niveau, Utilite, IdentifiantLangue, IdentifiantPersonne 
+                                FROM Langue_Personne";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -40,7 +40,7 @@ namespace EntretienSPPP.DB
                 
                 languePersonne.Identifiant = dataReader.GetInt32(0);
                 languePersonne.niveau = dataReader.GetString(1);
-                languePersonne.Utilite = dataReader.GetString(2);
+                languePersonne.Utilite = dataReader.GetChar(2);
                 languePersonne.langue.Identifiant = dataReader.GetInt32(3);
                 languePersonne.personne.Identifiant = dataReader.GetInt32(4);
 
@@ -67,7 +67,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, Niveau, Utilite, IdentifiantLangue, IdentifiantPersonne FROM Langue_Personne
+            String requete = @"SELECT Identifiant, Niveau, Utilite, IdentifiantLangue, IdentifiantPersonne 
+                                FROM Langue_Personne
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -88,5 +89,77 @@ namespace EntretienSPPP.DB
             connection.Close();
             return languePersonne;
         }
+
+
+        public static void Insert(Langue_Personne languePersonne)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+
+            String requete = @"INSERT INTO Langue_Personne(Niveau, Utilite, IdentifiantLangue, IdentifiantPersonne) 
+                                VALUES (@Niveau, @Utilite, @IdentifiantLangue, @IdentifiantPersonne);";
+            SqlCommand commande = new SqlCommand(requete, connection);
+            //Paramètres
+
+            commande.Parameters.AddWithValue("Niveau", languePersonne.niveau);
+            commande.Parameters.AddWithValue("Utilite", languePersonne.Utilite);
+            commande.Parameters.AddWithValue("IdentifiantLangue", languePersonne.langue.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", languePersonne.personne.Identifiant);
+
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Update(Langue_Personne languePersonne)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"UPDATE Langue_Personne 
+                                SET Niveau = @Niveau, Utilite = @Utilite, IdentifiantLangue = @IdentifiantLangue, IdentifiantPersonne = @IdentifiantPersonne 
+                                WHERE Identifiant = @Identifiant;";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", languePersonne.Identifiant);
+            commande.Parameters.AddWithValue("Niveau", languePersonne.niveau);
+            commande.Parameters.AddWithValue("Utilite", languePersonne.Utilite);
+            commande.Parameters.AddWithValue("IdentifiantLangue", languePersonne.langue.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", languePersonne.personne.Identifiant);
+
+
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Delete(Int32 Identifiant)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"DELETE FROM Langue_Personne 
+                               WHERE Identifiant = @Identifiant";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+            
     }
 }

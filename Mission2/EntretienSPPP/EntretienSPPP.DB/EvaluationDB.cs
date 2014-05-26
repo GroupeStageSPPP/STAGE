@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -23,7 +22,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = "SELECT Identifiant, Relation, Qualite, Realisation, Polyvalence, Assiduite, Motivation, Autonomie, RespectConsigne FROM Evaluation";
+            String requete = @"SELECT Identifiant, Relation, Qualite, Realisation, Polyvalence, Assiduite, Motivation, Autonomie, RespectConsigne, Commantaire 
+                               FROM Evaluation";
             connection.Open();
             SqlCommand commande = new SqlCommand(requete, connection);
             //execution
@@ -45,6 +45,7 @@ namespace EntretienSPPP.DB
                 evaluation.Motivation = dataReader.GetInt16(6);
                 evaluation.Autonomie = dataReader.GetInt16(7);
                 evaluation.RespectConsigne = dataReader.GetInt16(8);
+                evaluation.Commentaire = dataReader.GetString(9);
 
 
                 //2 - Ajouter ce Evaluation à la list de client
@@ -66,7 +67,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, Relation, Qualite, Realisation, Polyvalence, Assiduite, Motivation, Autonomie, RespectConsigne FROM Evaluation
+            String requete = @"SELECT Identifiant, Relation, Qualite, Realisation, Polyvalence, Assiduite, Motivation, Autonomie, RespectConsigne, Commentaire 
+                                FROM Evaluation
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -91,9 +93,84 @@ namespace EntretienSPPP.DB
             evaluation.Motivation = dataReader.GetInt16(6);
             evaluation.Autonomie = dataReader.GetInt16(7);
             evaluation.RespectConsigne = dataReader.GetInt16(8);
+            evaluation.Commentaire = dataReader.GetString(9);
             dataReader.Close();
             connection.Close();
             return evaluation;
+        }
+
+
+
+        public static void Insert(Evaluation evaluation)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"INSERT INTO Evaluation (Relation, Qualite, Realisation, Polyvalence, Assiduite, Motivation, Autonomie, RespectConsigne,  Commentaire)
+                                VALUES (@Relation, @Qualite, @Realisation, @Polyvalence, @Assiduite, @Motivation, @Autonomie, @RespectConsigne)";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Relation", evaluation.Relation);
+            commande.Parameters.AddWithValue("Qualite", evaluation.Qualite);
+            commande.Parameters.AddWithValue("Realisation", evaluation.Realisation);
+            commande.Parameters.AddWithValue("Polyvalence", evaluation.Polyvalence);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", evaluation.Assiduite);
+            commande.Parameters.AddWithValue("Motivation", evaluation.Motivation);
+            commande.Parameters.AddWithValue("Autonomie", evaluation.Autonomie);
+            commande.Parameters.AddWithValue("RespectConsigne", evaluation.RespectConsigne);
+            commande.Parameters.AddWithValue("ClareteObjectif", evaluation.Commentaire);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Update(Evaluation evaluation)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"UPDATE Evaluation 
+                               SET Relation = @Relation, Qualite = @Qualite, Realisation = @Realisation, Polyvalence = @Polyvalence, Assiduite = @Assiduite, Motivation = @Motivation, Autonomie = @Autonomie, RespectConsigne = @RespectConsigne 
+                                WHERE identifiant = @identifiant";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", evaluation.Identifiant);
+            commande.Parameters.AddWithValue("Relation", evaluation.Relation);
+            commande.Parameters.AddWithValue("Qualite", evaluation.Qualite);
+            commande.Parameters.AddWithValue("Realisation", evaluation.Realisation);
+            commande.Parameters.AddWithValue("Polyvalence", evaluation.Polyvalence);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", evaluation.Assiduite);
+            commande.Parameters.AddWithValue("Motivation", evaluation.Motivation);
+            commande.Parameters.AddWithValue("Autonomie", evaluation.Autonomie);
+            commande.Parameters.AddWithValue("RespectConsigne", evaluation.RespectConsigne);
+            commande.Parameters.AddWithValue("ClareteObjectif", evaluation.Commentaire);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Delete(Int32 Identifiant)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"DELETE FROM Evaluation 
+                               WHERE Identifiant = @Identifiant";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

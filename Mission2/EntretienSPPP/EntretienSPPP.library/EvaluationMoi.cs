@@ -10,6 +10,7 @@ namespace EntretienSPPP.library
         #region Attribut
         
         #endregion
+
         #region Propriété
         public Int32 IdentifiantEntretien { get; set; }
         public Int16 Communication { get; set; }
@@ -22,12 +23,14 @@ namespace EntretienSPPP.library
         public string Commentaire { get; set; }
 
         #endregion
+
         #region Constructeur
         public EvaluationMoi()
         {
                 
         }
         #endregion
+
         #region Méthodes
         
         #endregion

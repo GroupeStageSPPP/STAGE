@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 using EntretienSPPP.library;
 
 namespace EntretienSPPP.DB
@@ -64,7 +63,8 @@ namespace EntretienSPPP.DB
             ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
             SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
             //Commande
-            String requete = @"SELECT Identifiant, DateFin, Definitif, IdentifiantInaptitude, IdentifiantPersonne FROM Inaptitude_Personne
+            String requete = @"SELECT Identifiant, DateFin, Definitif, IdentifiantInaptitude, IdentifiantPersonne 
+                                FROM Inaptitude_Personne
                                 WHERE Identifiant = @Identifiant";
             SqlCommand commande = new SqlCommand(requete, connection);
 
@@ -87,6 +87,71 @@ namespace EntretienSPPP.DB
             dataReader.Close();
             connection.Close();
             return inaptitudePersonne;
+        }
+
+        public static void Insert(Inaptitude_Personne inaptitudePersonne)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+
+            String requete = @"INSERT INTO Inaptitude_Personne(DateFin, Definitif, IdentifiantInaptitude, IdentifiantPersonne)                                  VALUES (@DateFin, @Definitif, @IdentifiantInaptitude, @IdentifiantPersonne);";
+            SqlCommand commande = new SqlCommand(requete, connection);
+            //Paramètres
+            commande.Parameters.AddWithValue("DateFin", inaptitudePersonne.DateFin);
+            commande.Parameters.AddWithValue("Definitif", inaptitudePersonne.Definitif);
+            commande.Parameters.AddWithValue("IdentifiantInaptitude", inaptitudePersonne.inaptitude.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", inaptitudePersonne.personne.Identifiant);
+
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Update(Inaptitude_Personne inaptitudePersonne)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"UPDATE Inaptitude_Personne 
+                               SET DateFin = @DateFin, Definitif = @Definitif, IdentifiantInaptitude = @IdentifiantInaptitude, IdentifiantPersonne = @IdentifiantPersonne
+                               WHERE Identifiant = @Identifiant;";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", inaptitudePersonne.Identifiant);
+            commande.Parameters.AddWithValue("DateFin", inaptitudePersonne.DateFin);
+            commande.Parameters.AddWithValue("Definitif", inaptitudePersonne.Definitif);
+            commande.Parameters.AddWithValue("IdentifiantInaptitude", inaptitudePersonne.inaptitude.Identifiant);
+            commande.Parameters.AddWithValue("IdentifiantPersonne", inaptitudePersonne.personne.Identifiant);
+
+
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void Delete(Int32 Identifiant)
+        {
+            //Connection
+            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings["EntretienSPPPConnectionString"];
+            SqlConnection connection = new SqlConnection(connectionStringSettings.ToString());
+            //Commande
+            String requete = @"DELETE FROM Inaptitude_Personne 
+                               WHERE Identifiant = @Identifiant";
+            SqlCommand commande = new SqlCommand(requete, connection);
+
+            //Paramètres
+            commande.Parameters.AddWithValue("Identifiant", Identifiant);
+            //Execution
+            connection.Open();
+            commande.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }
